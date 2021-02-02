@@ -3,8 +3,6 @@ import PlayerCard from '../Components/PlayerCard';
 
 function PlayerContainer({ players, teams }) {
 
-    console.log(teams.map((team) => team.players ))
-    
     const renderPlayers = players.map((player) => { 
             return ( 
                 <PlayerCard 
@@ -12,7 +10,7 @@ function PlayerContainer({ players, teams }) {
                             name={player.name} 
                             position={player.position}
                             real_mlb_team={player.real_mlb_team}
-                            team={player.team}
+                            team={player.team.name}
                             years={player.years}
                             salary_per_year={player.salary_per_year}
                 />)})
