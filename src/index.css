@@ -10,13 +10,15 @@ img {
 }
 
 h1 {
-  border-style: double;
-  border-radius: 10px;
-  border-width: 20px;
-  border-color: black;
-  margin-left: 25%;
-  margin-right: 25%;
-  color: black;
+  position: relative;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: calc(20px + 5vw);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.15em #1da9cc;
+  text-shadow: 0 0 5px #fff,
 }
 
 .card-container {
@@ -32,18 +34,23 @@ form {
   background-color: rgb(120, 133, 190);
 }
 
-button {
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 0.75em 1.5em;
-  transition: opacity 0.2s ease;
-  border-style: double;
-  border-radius: 7px;
-  padding: 10px;
-  margin-bottom: 0%;
+.button{
+  position: relative;
+  display: block;
+  color: rgb(47, 56, 56);
+  font-size: 24px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  text-decoration: none;
+  text-shadow: 0 0 5px #fff;
+  margin: 10px 0;
+  border: 2px solid #4296e6;
+  padding: 4px 40px;
+  text-transform: uppercase;
+  overflow: hidden;
+  width: 70%;
+  height: 20px;
+  background: rgba(27, 25, 25, 0.2);
 }
-
 
 .player-container {
   display: flex;
@@ -63,3 +70,28 @@ button {
   padding: 5px;
   border-radius: 10px;
 }
+
+.navbar {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
+  overflow: hidden;
+}
+  .navbar:hover {
+    border-bottom: 2px solid blue;
+    box-shadow: 0 0 20px blue;
+  }
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
