@@ -26,9 +26,14 @@ function App() {
         .then(setUsers)
     },[])
 
+    console.log(teams.map((team) => team.user.username))
+    console.log(users)
+    console.log(players)
+    console.log(teams)
+
   return (
     <div className="App">
-      {/* <UserContainer users={users} teams={teams} /> */}
+      <UserContainer users={users} teams={teams} />
       <PlayerContainer players={players} teams={teams} />
     </div>
   );

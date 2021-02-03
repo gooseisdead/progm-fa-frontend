@@ -3,13 +3,11 @@ import UserCard from '../Components/UserCard';
 
 function UserContainer({ users, teams }) {
 
-    const teamNames = teams.map((team) => team.name)
-    console.log(teamNames)
-    const renderUsers = users.map((user) => {
-                   return(
-                    <UserCard username={user.username} users={users} />
+    const renderUsers = teams.map((team) => {
+                    return (
+                        <UserCard key={team.id} username={team.user.username} users={users} team={team.name} />
                     )
-     })
+                })
 
     return(
         <div className="user-container">
