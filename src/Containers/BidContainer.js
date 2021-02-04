@@ -12,6 +12,8 @@ function BidContainer({ player_id}) {
     },[])
         console.log("Bids", bids)
 
+    bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
+
     const renderBids = bids.map((bid) => {
         if (bid.player.id === player_id) {
         return ( <Bid 
