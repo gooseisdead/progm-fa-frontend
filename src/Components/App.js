@@ -1,48 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PlayerContainer from '../Containers/PlayerContainer';
-import UserContainer from '../Containers/UserContainer';
+import TeamContainer from '../Containers/TeamContainer';
 import Header from '../Components/Header';
 
 function App() {
 
-  const [players, setPlayers] = useState([])
-  const [teams, setTeams] = useState([])
   const [users, setUsers] = useState([])
+  const [teams, setTeams] = useState([])
+  const [players, setPlayers] = useState([])
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/players`)
         .then((response) => response.json())
         .then(setPlayers)
-    },[])
-  console.log("Players", players)
-
+  },[])
+    console.log("Players", players)
+  
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/teams`)
         .then((response) => response.json())
         .then(setTeams)
-    },[])
-  console.log("Teams", teams)
-  
+  },[])
+    console.log("Teams", teams)
+    
+    console.log(teams.map((team) => team.user.username))
+
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/users`)
         .then((response) => response.json())
         .then(setUsers)
-    },[])
-  console.log("Users", users)
-
-
-  console.log(teams.map((team) => team.user.username))
-  
+  },[])
+    console.log("Users", users)
 
   return (
     <div className="App">
       <Header />
-        <Route path="/users">
-          <UserContainer users={users} teams={teams} />
+        <Route path="/teams">
+          <TeamContainer teams={teams} />
         </Route>
         <Route path="/players">
-          <PlayerContainer players={players} teams={teams} />
+          <PlayerContainer teams={teams} players={players} />
         </Route>
     </div>
   );

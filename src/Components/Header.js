@@ -11,15 +11,12 @@ function Header() {
             <NavLink exact to="/players" className="button">
                 Free Agents
             </NavLink>
-            <NavLink to="/users" className="button">
-                Users
+            <NavLink to="/teams" className="button">
+                Pro GM Teams
             </NavLink>
         </nav>
     </header>
     )
 }
-
-
-
 
 export default Header;

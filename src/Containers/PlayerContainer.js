@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PlayerCard from '../Components/PlayerCard';
 
-function PlayerContainer({ players, teams }) {
-
-    let sortedList = teams.sort()
-        .map((team, index) => <option key={index}>{team.name}</option>);
+function PlayerContainer({ teams, players }) {
 
     const renderPlayers = players.map((player) => { 
-            return ( 
+            if (player.team.name === "Free Agent") {
+                return ( 
                     <PlayerCard 
                             key={player.id}
                             id={player.id}
@@ -19,11 +17,13 @@ function PlayerContainer({ players, teams }) {
                             years={player.years}
                             salary_per_year={player.salary_per_year}
                             bids={player.bids}
-                            sortedList={sortedList}
-                    />
-                )})
+                            teams={teams}
+                    /> )}
+                })
     return (
-        <div className="player-container">{renderPlayers}</div>
+        <div className="player-container">
+            {renderPlayers}
+        </div>
     )
 }
 
