@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TeamCard from '../Components/TeamCard';
 
-function TeamContainer({ teams }) {
+function TeamContainer({ teams, players }) {
 
     const renderTeams = teams.map((team) => {
 
@@ -11,6 +11,7 @@ function TeamContainer({ teams }) {
                             id={team.user.id}
                             username={team.user.username}
                             team={team.name}
+                            players={players}
                         />
                     )
                 })

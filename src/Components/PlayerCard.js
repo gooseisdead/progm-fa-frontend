@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import BidContainer from '../Containers/BidContainer';
 
 
-function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, teams, bids }) {
+function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, sortedList, teams, bids }) {
 
     const [selectBy, setSelectBy] = useState("");
 
@@ -11,13 +11,15 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
         setSelectBy(event.target.value);
       }
 
-    let sortedList = teams.sort()
-        .map((team, index) => <option key={index}>{team.name}</option>);
+    // let sortedList = teams.sort()
+    //     .map((team, index) => <option key={index}>{team.name}</option>);
 
     return (
         <div className="card-container">
             <div className="player-card">
-                <h3><Link to={`/players/${id}`} className="player-link">{name} - {position}</Link></h3>
+                <h3>
+                    <Link to={`/players/${id}`} className="player-link">{name} - {position}</Link>
+                </h3>
                 <p>{real_mlb_team}</p>
                 <p>{team}</p>
                 <p>{years} years, ${salary_per_year} million</p>
