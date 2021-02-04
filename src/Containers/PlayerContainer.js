@@ -6,7 +6,6 @@ function PlayerContainer({ players, teams }) {
 
     const renderPlayers = players.map((player) => { 
             return ( 
-                // <Route exact path="players/:id">
                     <PlayerCard 
                             key={player.id}
                             id={player.id}
@@ -16,8 +15,8 @@ function PlayerContainer({ players, teams }) {
                             team={player.team.name}
                             years={player.years}
                             salary_per_year={player.salary_per_year}
+                            bids={player.bids}
                     />
-                // </Route>
                 )})
     return (
         <div className="player-container">{renderPlayers}</div>
