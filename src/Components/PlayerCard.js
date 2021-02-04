@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 
-function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year }) {
+function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, sortedList }) {
 
     return (
         <div className="card-container">
@@ -12,9 +12,7 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
                 <p>{team}</p>
                 <p>{years} years, ${salary_per_year} million</p>
                 <select value="Radish">
-                    <option value="Angels">Angels</option>
-                    <option value="Athletics">Athletics</option>
-                    <option value="Cubs">Cubs</option>
+                   {sortedList}
                 </select>
             </div>
         </div>
