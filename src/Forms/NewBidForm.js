@@ -30,7 +30,8 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
         body: JSON.stringify({
           years: years,
           salary_per_year: salary,
-          player_id: player_id
+          player_id: player_id,
+          user_id: 3
           
         }),
       })
@@ -42,16 +43,18 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
         <form onSubmit={handleSubmit} className="new-bid-form">
           <label>
             <strong> Years: </strong>
-                <select onChange={handleYearSelect} value={years}>
+                <select onChange={handleYearSelect} value={years} placeholder="Select Years">
                     {sortedYears}
                 </select>
         </label>
+        <br></br>
         <label>
-            <strong> Salary Per Year: </strong>
+            <strong> Salary: </strong>
                 <select onChange={handleSalarySelect} value={salary}>
                     {sortedSalary}
                 </select>
         </label>
+        <br></br>
           <input type="submit" value="Place Your Bid" />
         </form>
       );
