@@ -35,6 +35,8 @@ function App() {
   let sortedList = teams.sort()
   .map((team, index) => <option key={index}>{team.name}</option>);
 
+  // let beef = "beef"
+
   return (
     <div className="App">
       <Header />
@@ -43,7 +45,7 @@ function App() {
             <TeamContainer teams={teams} players={players} />
           </Route>
           <Route exact path="/players">
-            <PlayerContainer teams={teams} players={players} sortedList={sortedList} />
+            <PlayerContainer teams={teams} players={players} setPlayers={setPlayers} sortedList={sortedList} />
           </Route>
           <Route exact path="/players/:id">
             <PlayerCard players={players} sortedList={sortedList} />

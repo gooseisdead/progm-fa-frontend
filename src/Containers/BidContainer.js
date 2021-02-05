@@ -16,11 +16,14 @@ function BidContainer({ player_id}) {
 
     const renderBids = bids.map((bid) => {
         if (bid.player.id === player_id) {
-        return ( <Bid 
+        return (
+                <Bid 
+                    key={bid.id}
                     years={bid.years}
                     salary_per_year={bid.salary_per_year}
                     player={bid.player}
-                /> )
+                />
+            )
         }})
 
     return (

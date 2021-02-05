@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TeamCard from '../Components/TeamCard';
 
 function TeamContainer({ teams, players }) {
@@ -12,6 +12,7 @@ function TeamContainer({ teams, players }) {
                             username={team.user.username}
                             team={team.name}
                             players={players}
+                            logo={team.logo}
                         />
                     )
                 })
