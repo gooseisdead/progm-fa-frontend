@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { salaries, yearSelect } from '../exports/salaries.js'
+import { salaries, yearSelect } from '../exports/selctions.js'
 
 function NewBidForm({ player_id, team, localHandleNewBid }) {
 

@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import { positionSelect } from '../exports/salaries.js'
+import { positionSelect } from '../exports/selctions.js'
 
 function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
 
   const [name, setName] = useState("")
   const [position, setPosition] = useState("")
-  const [years, setYears] = useState("")
-  const [salaryPerYear, setSalaryPerYear] = useState("")
   const [selectBy, setSelectBy] = useState("");
 
-  const sortedPosition = positionSelect.map((position, index) => <option key={index}>{position}</option>);
-//   const sortedYears = yearSelect.map((year, index) => <option key={index}>{year}</option>);
-//   const sortedSalary = salaries.map((salary, index) => <option key={index}>{salary}</option>);
+  const sortedPosition = positionSelect.map((position, index) => 
+        <option key={index}>{position}</option>);
 
   function handleTeamSelect(event) {
     setSelectBy(event.target.value);
@@ -20,14 +17,6 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
   function handlePositionSelect(event) {
     setPosition(event.target.value);
   }
-
-//   function handleYearSelect(event) {
-//     setYears(event.target.value);
-//   }
-
-//   function handleSalarySelect(event) {
-//     setSalaryPerYear(event.target.value);
-//   }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -70,18 +59,6 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
                     {sortedList}
                 </select>
         </label>
-        {/* <label>
-            <strong> Years: </strong>
-                <select onChange={handleYearSelect} value={years}>
-                    {sortedYears}
-                </select>
-        </label>
-        <label>
-            <strong> Salary Per Year: </strong>
-                <select onChange={handleSalarySelect} value={salaryPerYear}>
-                    {sortedSalary}
-                </select>
-        </label> */}
         <br></br>
         <input type="submit" value="Declare New Free Agent" />
       </form>
