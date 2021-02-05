@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Bid from '../Components/Bid';
 import NewBidForm from '../Forms/NewBidForm';
 
-function BidContainer({ player_id, team, localHandleNewBid }) {
+function BidContainer({ player_id, team }) {
 
     const [bids, setBids] = useState([])
 
@@ -36,7 +36,7 @@ function BidContainer({ player_id, team, localHandleNewBid }) {
 
     return (
         <div className="bid-container">
-             <NewBidForm player_id={player_id} team={team} localHandleNewBid={localHandleNewBid} />
+             <NewBidForm player_id={player_id} team={team} localHandleNewBid={handleNewBid} />
             {renderBids}
         </div>
     )

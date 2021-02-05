@@ -30,7 +30,6 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
         body: JSON.stringify({
           years: years,
           salary_per_year: salary,
-          user_id: team.id,
           player_id: player_id
           
         }),
