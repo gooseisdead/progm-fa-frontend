@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import React from 'react';
 import PlayerCard from '../Components/PlayerCard';
 import NewFreeAgentForm from '../Forms/NewFreeAgentForm';
 

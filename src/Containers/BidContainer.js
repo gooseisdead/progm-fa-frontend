@@ -16,7 +16,7 @@ function BidContainer({ player_id, team }) {
     function handleNewBid(newBid) {
         const updatedBidsArray = [...bids, newBid]
         setBids(updatedBidsArray)
-      }
+    }
 
     bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
 
@@ -32,11 +32,15 @@ function BidContainer({ player_id, team }) {
                 />
             </div>
             )
-        }})
+        }
+    })
 
     return (
         <div className="bid-container">
-             <NewBidForm player_id={player_id} team={team} localHandleNewBid={handleNewBid} />
+            <NewBidForm player_id={player_id}
+                        team={team}
+                        localHandleNewBid={handleNewBid}
+            />
             {renderBids}
         </div>
     )

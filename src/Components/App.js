@@ -47,20 +47,27 @@ function App() {
     setPlayers(updatedPlayersArray)
   }
 
-  // let beef = "beef"
-
   return (
     <div className="App">
       <Header />
         <Switch>
           <Route path="/teams">
-            <TeamContainer teams={teams} players={players} />
+            <TeamContainer teams={teams}
+                          players={players}
+            />
           </Route>
           <Route exact path="/players">
-            <PlayerContainer teams={teams} players={players} setPlayers={setPlayers} sortedList={sortedList} localHandleNewFreeAgent={handleNewFreeAgent} />
+            <PlayerContainer teams={teams} 
+                            players={players}
+                            setPlayers={setPlayers}
+                            sortedList={sortedList}
+                            localHandleNewFreeAgent={handleNewFreeAgent}
+            />
           </Route>
           <Route exact path="/players/:id">
-            <PlayerCard players={players} sortedList={sortedList} />
+            <PlayerCard players={players}
+                        sortedList={sortedList}
+            />
           </Route>
         </Switch>
     </div>

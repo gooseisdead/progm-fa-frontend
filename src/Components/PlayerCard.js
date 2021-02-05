@@ -4,15 +4,6 @@ import BidContainer from '../Containers/BidContainer';
 
 function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year }) {
 
-
-
-
-    // const [selectBy, setSelectBy] = useState("");
-
-    // function handleTeamSelect(event) {
-    //     setSelectBy(event.target.value);
-    //   }
-
     return (
         <div className="player-container">
             <div className="player-card">
@@ -21,7 +12,6 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
                 </h3>
                     <p>{real_mlb_team}</p>
                     <p>{team}</p>
-                    {/* <p>{beef}</p> */}
                     <p>{years} years, ${salary_per_year} million</p>
                     <BidContainer player_id={id} team={team} />
             </div>
