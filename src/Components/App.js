@@ -7,7 +7,7 @@ import Header from '../Components/Header';
 
 function App() {
 
-  // const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([])
   const [teams, setTeams] = useState([])
   const [players, setPlayers] = useState([])
 
@@ -25,15 +25,27 @@ function App() {
   },[])
     // console.log("Teams", teams)
     
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_BASE_URL}/users`)
-  //       .then((response) => response.json())
-  //       .then(setUsers)
-  // },[])
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/users`)
+        .then((response) => response.json())
+        .then(setUsers)
+  },[])
     // console.log("Users", users)
+
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_API_BASE_URL}/bids`)
+  //       .then((response) => response.json())
+  //       .then(setBids)
+  // },[])
+  //       console.log("Bids", bids)
 
   let sortedList = teams.sort()
   .map((team, index) => <option key={index}>{team.name}</option>);
+
+  function handleNewFreeAgent(newPlayer) {
+    const updatedPlayersArray = [...players, newPlayer]
+    setPlayers(updatedPlayersArray)
+  }
 
   // let beef = "beef"
 
@@ -45,7 +57,7 @@ function App() {
             <TeamContainer teams={teams} players={players} />
           </Route>
           <Route exact path="/players">
-            <PlayerContainer teams={teams} players={players} setPlayers={setPlayers} sortedList={sortedList} />
+            <PlayerContainer teams={teams} players={players} setPlayers={setPlayers} sortedList={sortedList} localHandleNewFreeAgent={handleNewFreeAgent} />
           </Route>
           <Route exact path="/players/:id">
             <PlayerCard players={players} sortedList={sortedList} />

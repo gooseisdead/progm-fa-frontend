@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PlayerCard from '../Components/PlayerCard';
+import NewFreeAgentForm from '../Forms/NewFreeAgentForm';
 
-function PlayerContainer({ teams, players, setPlayers, sortedList }) {
+function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNewFreeAgent }) {
 
     const renderPlayers = players.map((player) => { 
             if (player.team.name === "Free Agent") {
-                return ( 
+                return (
+                    <div>
                         <PlayerCard 
                                 key={player.id}
                                 id={player.id}
@@ -21,13 +23,19 @@ function PlayerContainer({ teams, players, setPlayers, sortedList }) {
                                 setPlayers={setPlayers}
                                 sortedList={sortedList}
                         />
+                    </div>
                 )}
             })
 
     return (
+        <>
+        <div className="form-container">
+            <NewFreeAgentForm sortedList={sortedList} localHandleNewFreeAgent={localHandleNewFreeAgent} />
+        </div>
         <div className="player-container">
             {renderPlayers}
         </div>
+        </>
     )
 }
 

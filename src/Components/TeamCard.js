@@ -8,11 +8,11 @@ function TeamCard({ username, team, logo, id, players }) {
 //        }
 //     })
     return (
-        <div className="card-container">
+        <div className="team-container">
             <div className="team-card">
                 <h3>{team}</h3>
                 <img src={logo} alt="logo"></img>
-                <p>{username}</p>
+                <p>GM: {username}</p>
                 {/* {renderPlayers} */}
             </div>
         </div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Bid from '../Components/Bid';
+import NewBidForm from '../Forms/NewBidForm';
 
-function BidContainer({ player_id}) {
+function BidContainer({ player_id, team, localHandleNewBid }) {
 
     const [bids, setBids] = useState([])
 
@@ -12,22 +13,30 @@ function BidContainer({ player_id}) {
     },[])
         console.log("Bids", bids)
 
+    function handleNewBid(newBid) {
+        const updatedBidsArray = [...bids, newBid]
+        setBids(updatedBidsArray)
+      }
+
     bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
 
     const renderBids = bids.map((bid) => {
-        if (bid.player.id === player_id) {
+        if (bid.player.id === player_id ) {
         return (
+            <div>
                 <Bid 
                     key={bid.id}
                     years={bid.years}
                     salary_per_year={bid.salary_per_year}
                     player={bid.player}
                 />
+            </div>
             )
         }})
 
     return (
         <div className="bid-container">
+             <NewBidForm player_id={player_id} team={team} localHandleNewBid={localHandleNewBid} />
             {renderBids}
         </div>
     )
