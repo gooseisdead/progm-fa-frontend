@@ -5,7 +5,7 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
 
   const [name, setName] = useState("")
   const [position, setPosition] = useState("")
-  const [selectBy, setSelectBy] = useState("");
+  const [selectBy, setSelectBy] = useState({value: "Arizona Diamondbacks"});
 
   const sortedPosition = positionSelect.map((position, index) => 
         <option key={index}>{position}</option>);
@@ -58,7 +58,7 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
         </label>
         <label>
             <strong> MLB Team: </strong>
-                <select onChange={handleTeamSelect} value={selectBy}>
+                <select onChange={handleTeamSelect} value={selectBy.value}>
                     {sortedList}
                 </select>
         </label>

@@ -3,7 +3,7 @@ import { salaries, yearSelect } from '../exports/selctions.js'
 
 function NewBidForm({ player_id, team, localHandleNewBid }) {
 
-    const [years, setYears] = useState("")
+    const [years, setYears] = useState({value: "1"})
     const [salary, setSalary] = useState("")
     // const [user, setUser] = useState("")
     // const [player, setPlayer] = useState("")
