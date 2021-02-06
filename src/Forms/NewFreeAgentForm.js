@@ -35,8 +35,11 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
       }),
     })
     .then((r) => r.json())
-    .then((newPlayer) => localHandleNewFreeAgent(newPlayer))
+    .then((newPlayer) => localHandleNewFreeAgent(newPlayer));
     event.target.reset();
+    if (event.target.value === null) {
+      console.log("hello")
+    }
   }
 
     return (

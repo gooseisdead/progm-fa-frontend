@@ -21,6 +21,7 @@ function BidContainer({ player_id, team }) {
     bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
 
     const renderBids = bids.map((bid) => {
+        console.log(bid.created_at)
         if (bid.player.id === player_id ) {
         return (
             <div>
@@ -29,9 +30,12 @@ function BidContainer({ player_id, team }) {
                     years={bid.years}
                     salary_per_year={bid.salary_per_year}
                     player={bid.player}
+                    timestamp={bid.created_at}
                 />
             </div>
             )
+        } else {
+            return null
         }
     })
 

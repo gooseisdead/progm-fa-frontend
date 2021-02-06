@@ -1,10 +1,12 @@
 import React from 'react';
 
-function Bid({ years, salary_per_year }) {
+function Bid({ years, salary_per_year, timestamp }) {
+
     return (
-        <p>{years} year(s)
-        ${salary_per_year.toFixed(1)} million
-        </p>
+        <div className="bid-list">
+            <p>{years} year(s) ${salary_per_year.toFixed(1)} million</p>
+            <p>{timestamp}</p>
+        </div>
     )
 }
 
