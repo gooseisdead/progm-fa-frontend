@@ -56,6 +56,7 @@ function BidContainer({ player_id, team }) {
                     salary_per_year={bid.salary_per_year}
                     player={bid.player}
                     created={bid.created_at}
+                    username={bid.user.username}
                 />
             </div>
             )

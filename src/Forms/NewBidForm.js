@@ -3,8 +3,8 @@ import { salaries, yearSelect } from '../exports/selctions.js'
 
 function NewBidForm({ player_id, team, localHandleNewBid }) {
 
-    const [years, setYears] = useState({value: "1"})
-    const [salary, setSalary] = useState("")
+    const [years, setYears] = useState(1)
+    const [salary, setSalary] = useState(0.4)
     // const [user, setUser] = useState("")
     // const [player, setPlayer] = useState("")
 
@@ -31,7 +31,7 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
           years: years,
           salary_per_year: salary,
           player_id: player_id,
-          user_bid_id: 3
+          user_id: 3
           
         }),
       })

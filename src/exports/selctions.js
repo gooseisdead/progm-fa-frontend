@@ -1,4 +1,4 @@
-const salaries = ["select", 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
+const salaries = [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
                  1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7,
                  1.8, 1.9, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5,
                  5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5,
@@ -10,8 +10,8 @@ const salaries = ["select", 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
                  43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0,
                  50.0]
 
-const positionSelect = ["select", "C", "1B", "2B", "3B", "SS", "OF", "P"];
+const positionSelect = ["C", "1B", "2B", "3B", "SS", "OF", "P"];
 
-const yearSelect = ["select", 1, 2, 3, 4];
+const yearSelect = [1, 2, 3, 4];
 
 export { salaries, positionSelect, yearSelect }
