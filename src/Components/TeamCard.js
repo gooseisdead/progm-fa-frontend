@@ -2,12 +2,16 @@ import React from 'react';
 
 function TeamCard({ username, team, logo, id, players }) {
 
-//    const renderPlayers = players.map((player) => {
-//        if (player.team.id === id) {
-//            return (<p>{player.name} • {player.position}</p>)
-//        }
-//     })
-// {renderPlayers}
+    const renderPlayers = players.map((player) => {
+        if (player.team.id === id) {
+            return (
+                <>
+                    <p>{player.name} • {player.position}</p>
+                    <p>${player.salary_per_year.toFixed(1)} million</p>
+                </>
+            )
+        }
+    })
 
     return (
         <div className="team-container">
@@ -17,6 +21,7 @@ function TeamCard({ username, team, logo, id, players }) {
                         <img src={logo} alt="logo"></img>
                     {/* </div> */}
                 <p>GM: {username}</p>
+                {renderPlayers}
             </div>
         </div>
     )

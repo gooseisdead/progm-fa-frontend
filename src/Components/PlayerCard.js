@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import BidContainer from '../Containers/BidContainer';
 
@@ -8,7 +8,9 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
         <div className="player-container">
             <div className="player-card">
                 <h3>
-                    <Link to={`/players/${id}`} className="player-link">{name} - {position}</Link>
+                    <Link to={`/players/${id}`} className="player-link">{name}</Link>
+                    <br></br>
+                    {position}
                 </h3>
                     <p>{real_mlb_team}</p>
                     <p>{team}</p>

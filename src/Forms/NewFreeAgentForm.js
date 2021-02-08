@@ -3,9 +3,9 @@ import { positionSelect } from '../exports/selctions.js'
 
 function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
 
-  const [name, setName] = useState("")
-  const [position, setPosition] = useState("")
-  const [selectBy, setSelectBy] = useState("");
+  const [name, setName] = useState("Player Name")
+  const [position, setPosition] = useState("C")
+  const [selectBy, setSelectBy] = useState("Arizona Diamondbacks");
 
   const sortedPosition = positionSelect.map((position, index) => 
         <option key={index}>{position}</option>);
