@@ -4,6 +4,7 @@ import PlayerContainer from '../Containers/PlayerContainer';
 import PlayerCard from '../Components/PlayerCard';
 import TeamContainer from '../Containers/TeamContainer';
 import Header from '../Components/Header';
+import TeamPage from '../Components/TeamPage';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/players`)
         .then((response) => response.json())
-        .then(setPlayers)
+        .then(data => setPlayers(data))
   },[])
     // console.log("Players", players)
   
@@ -51,7 +52,7 @@ function App() {
     <div className="App">
       <Header />
         <Switch>
-          <Route path="/teams">
+          <Route exact path="/teams">
             <TeamContainer teams={teams}
                           players={players}
             />
@@ -64,10 +65,13 @@ function App() {
                             localHandleNewFreeAgent={handleNewFreeAgent}
             />
           </Route>
-          <Route exact path="/players/:id">
+          {/* <Route exact path="/players/:id">
             <PlayerCard players={players}
                         sortedList={sortedList}
             />
+          </Route> */}
+          <Route exact path="/teams/:id">
+            <TeamPage teams={teams} users={users} players={players} />
           </Route>
         </Switch>
     </div>

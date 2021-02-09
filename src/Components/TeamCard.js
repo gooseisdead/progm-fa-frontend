@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function TeamCard({ username, team, logo, id, players }) {
 
@@ -17,10 +18,9 @@ function TeamCard({ username, team, logo, id, players }) {
         <div className="team-container">
             <div className="team-card" style={{ backgroundImage: {logo} }}>
                 <h3>{team}</h3>
-                    {/* <div className="team-img-container"> */}
                         <img src={logo} alt="logo"></img>
-                    {/* </div> */}
                 <p>GM: {username}</p>
+                <Link to={`/teams/${id}`}>See Details</Link>
                 {renderPlayers}
             </div>
         </div>

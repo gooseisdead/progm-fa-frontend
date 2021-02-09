@@ -36,10 +36,22 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
     })
     .then((r) => r.json())
     .then((newPlayer) => localHandleNewFreeAgent(newPlayer));
-    event.target.reset();
-    if (event.target.value === null) {
-      console.log("hello")
-    }
+    fetch("http://localhost:3000/bids", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        position: position,
+        real_mlb_team: selectBy,
+        years: 0,
+        salary_per_year: 0.0,
+        team_id: 31
+      }),
+    })
+    .then((r) => r.json())
+    .then((newPlayer) => localHandleNewFreeAgent(newPlayer));
   }
 
     return (

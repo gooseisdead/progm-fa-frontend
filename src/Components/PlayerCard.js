@@ -1,14 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import BidContainer from '../Containers/BidContainer';
 
-function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year }) {
+function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, bids }) {
+
+    let activeBidArray = []
+    let bidsArray = bids.map((bid) => bid.salary_per_year)
+    console.log(bidsArray)
+
+
+    // let highestBid = activeBidArray.reduce(function(a, b) {
+    //                 return Math.max(a, b);
+    // });
+
+    
 
     return (
         <div className="player-container">
             <div className="player-card">
                 <h3>
-                    <Link to={`/players/${id}`} className="player-link">{name}</Link>
+                    {name}
                     <br></br>
                     {position}
                 </h3>

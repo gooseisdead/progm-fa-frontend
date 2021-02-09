@@ -11,38 +11,16 @@ function BidContainer({ player_id, team }) {
           .then((response) => response.json())
           .then(setBids)
     },[])
-        console.log("Bids", bids)
-
-    // function handleNewJoin(newBid) { 
-    
-    //     const newUserBidObj = {
-    //         bid_id: newBid.id,
-    //         user_id: 1
-    //     };
-    //         fetch("http://localhost:3000/user_bids", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify(newUserBidObj)
-    //             }
-    //             .then(response => response.json())
-    //             .then(newUserBid => console.log(newUserBid))
-    //         )
-    // }
-
-//     function getNewBids(id) {       
-//         fetch(`http://localhost:3000/bids/${id}`)
-//                .then(r => r.json())
-//                .then(setBids)
-//    }
+        // console.log("Bids", bids)
 
     function handleNewBid(newBid) {
         const updatedBidsArray = [...bids, newBid];
         setBids(updatedBidsArray);
-        // handleNewJoin(newBid.id);
-       
     }
+
+    // let bidsArray = bids.map((bid) => bid.player)
+
+    // console.log(bidsArray)
 
     bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
 
