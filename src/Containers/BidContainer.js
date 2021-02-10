@@ -35,6 +35,7 @@ function BidContainer({ player_id, team }) {
                     player={bid.player}
                     created={bid.created_at}
                     username={bid.user.username}
+                    team={bid.user.team.name}
                 />
             </div>
             )
@@ -44,13 +45,17 @@ function BidContainer({ player_id, team }) {
     })
 
     return (
+        <div>
         <div className="bid-container">
+            <b className="bid-scroll">Scroll Bid History</b>
+            {renderBids}
+        </div>
+        <div className="bid-form">
             <NewBidForm player_id={player_id}
                         team={team}
                         localHandleNewBid={handleNewBid}
             />
-            <h4>Bid History</h4>
-            {renderBids}
+        </div>
         </div>
     )
 }

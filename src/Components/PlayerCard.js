@@ -18,7 +18,7 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
         <div className="player-container">
             <div className={testOut}>
                 <p>{position}</p>
-                <h4>{name}</h4>
+                <b>{name}</b>
                     <p className="real-team">{real_mlb_team}</p>
                     <p>{team}</p>
                     {/* <p>{years} years, ${salary_per_year} million</p> */}

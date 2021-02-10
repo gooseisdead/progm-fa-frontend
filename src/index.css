@@ -61,7 +61,7 @@ form {
   overflow-y: scroll;    
   background-color: #eeeeee;
   height: 400px;
-  width: 200px;
+  width: 300px;
   box-shadow: 6px 6px grey;
   border-radius: 10px; 
 } 
@@ -109,13 +109,13 @@ form {
 .time-line {
   font-size: x-small;
   font-style: oblique;
-  color: rgb(201, 75, 75);
+  color: rgb(219, 56, 70);
 }
 
 .real-team {
   font-size: x-small;
   font-style: oblique;
-  color: rgb(201, 75, 75);
+  color: rgb(51, 63, 235);
 }
 
 .navbar {
@@ -137,5 +137,36 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bid-container {
+  display: inline-block;
+  border: 2px black solid;
+  vertical-align: top;
+  padding: 3px;
+  overflow-y: scroll;    
+  background-color: #a8afaf;
+  height: 110px;
+  width: 230px;
+  /* box-shadow: 6px 6px grey; */
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 6px;
+  align-content: center;
+}
+
+.new-bid-form {
+  padding: 3px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  border-width: 6px;
+  background-color: rgb(130, 190, 145);
+}
+
+.bid-scroll {
+  font-size: x-small;
+  font-style: oblique;
+  color: rgb(19, 83, 59);
 }
 

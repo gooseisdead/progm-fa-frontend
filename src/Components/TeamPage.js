@@ -21,7 +21,12 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
     if (!isLoaded) return <h2>Loading...</h2>;
 
     const { name, logo, players, user } = team;
-    console.log(user)
+
+    let salaryArray = players.map((player) => player.salary_per_year)
+
+    let totalSalary = salaryArray.reduce(function(a, b){
+        return a + b;
+    }, 0);
     
     const renderPlayers = players.map((player) => {
           return (
@@ -33,8 +38,13 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
             <h1>{name}</h1>
             <p>GM: <b>{user.username}</b></p>
             <img src={logo} alt={name}></img>
-            <AddPlayerForm params={params} sortedList={sortedList} localHandleAddPlayer={localHandleAddPlayer} />
+            <AddPlayerForm key={params} params={params} sortedList={sortedList} localHandleAddPlayer={localHandleAddPlayer} />
             {renderPlayers}
+            ________________________________________________
+            <br></br>
+            <b>Team Salary: </b>{salaryArray.length} players, {totalSalary.toFixed(1)} million<br></br>
+            <p className="cap">Salary Cap: 155.0 million </p>
+            <p className="available-salary">Available Salary: {155.0 - totalSalary.toFixed(1)}</p>
         </div>
     )
 }

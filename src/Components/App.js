@@ -16,7 +16,7 @@ function App() {
     useEffect(() => {
       fetch(`${process.env.REACT_APP_API_BASE_URL}/players`)
           .then((response) => response.json())
-          .then(data => setPlayers(data))
+          .then(setPlayers)
     },[])
       // console.log("Players", players)
 
@@ -34,14 +34,14 @@ function App() {
     },[])
       // console.log("Users", users)    
     let sortedList = teams.sort()
-    .map((team, index) => <option key={index}>{team.name}</option>);    
+      .map((team, index) => <option key={index}>{team.name}</option>);
+
     function handleNewFreeAgent(newPlayer) {
       const updatedPlayersArray = [...players, newPlayer]
       setPlayers(updatedPlayersArray)
     }
 
     const playersToDisplay = players.filter((player) =>
-        // player.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         player.position.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -67,9 +67,8 @@ function App() {
                               searchTerm={searchTerm}
                               onChangeSearch={setSearchTerm}
                               playersToDisplay={playersToDisplay}
-                              // positionsToDisplay={positionsToDisplay}
-                              positionTerm={positionTerm}
-                              setPositionTerm={setPositionTerm}
+                              // positionTerm={positionTerm}
+                              // setPositionTerm={setPositionTerm}
 
               />
             </Route>

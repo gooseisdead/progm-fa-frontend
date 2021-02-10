@@ -28,7 +28,7 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
           years: years,
           salary_per_year: salary,
           player_id: player_id,
-          user_id: 3  
+          user_id: 19 
         }),
       })
       .then((r) => r.json())
