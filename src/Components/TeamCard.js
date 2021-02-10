@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 function TeamCard({ username, team, logo, id, players }) {
 
-    const renderPlayers = players.map((player) => {
-        if (player.team.id === id) {
-            return (
-                <>
-                    <p>{player.name} • {player.position}</p>
-                    <p>${player.salary_per_year.toFixed(1)} million</p>
-                </>
-            )
-        }
-    })
+    // const renderPlayers = players.map((player) => {
+    //     if (player.team.id === id) {
+    //         return (
+    //             <>
+    //                 <p>{player.name} • {player.position}</p>
+    //                 <p>${player.salary_per_year.toFixed(1)} million</p>
+    //             </>
+    //         )
+    //     }
+    // })
 
     return (
         <div className="team-container">
@@ -21,7 +21,7 @@ function TeamCard({ username, team, logo, id, players }) {
                         <img src={logo} alt="logo"></img>
                 <p>GM: {username}</p>
                 <Link to={`/teams/${id}`}>See Details</Link>
-                {renderPlayers}
+                {/* {renderPlayers} */}
             </div>
         </div>
     )

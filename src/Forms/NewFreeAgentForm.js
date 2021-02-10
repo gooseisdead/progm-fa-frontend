@@ -3,7 +3,7 @@ import { positionSelect } from '../exports/selctions.js'
 
 function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
 
-  const [name, setName] = useState("Player Name")
+  const [name, setName] = useState("")
   const [position, setPosition] = useState("C")
   const [selectBy, setSelectBy] = useState("Arizona Diamondbacks");
 
@@ -36,22 +36,7 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
     })
     .then((r) => r.json())
     .then((newPlayer) => localHandleNewFreeAgent(newPlayer));
-    fetch("http://localhost:3000/bids", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: name,
-        position: position,
-        real_mlb_team: selectBy,
-        years: 0,
-        salary_per_year: 0.0,
-        team_id: 31
-      }),
-    })
-    .then((r) => r.json())
-    .then((newPlayer) => localHandleNewFreeAgent(newPlayer));
+    
   }
 
     return (

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AddPlayerForm from '../Forms/AddPlayerForm';
 
-function TeamPage() {
+function TeamPage({ users, sortedList, localHandleAddPlayer }) {
   const [team, setTeam] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const params = useParams();
   console.log(params);
-
-  // const id = 1;
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/teams/${params.id}`)
@@ -32,6 +31,7 @@ function TeamPage() {
       <div className="team-page">
           <h1>{name}</h1>
           <img src={logo} alt={name}></img>
+          <AddPlayerForm params={params} sortedList={sortedList} localHandleAddPlayer={localHandleAddPlayer} />
           {renderPlayers}
       </div>
   )

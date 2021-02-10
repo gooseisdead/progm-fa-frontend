@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
 import PlayerCard from '../Components/PlayerCard';
 import NewFreeAgentForm from '../Forms/NewFreeAgentForm';
 

@@ -3,20 +3,21 @@ import BidContainer from '../Containers/BidContainer';
 
 function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, bids }) {
 
-    let activeBidArray = []
-    let bidsArray = bids.map((bid) => bid.salary_per_year)
-    console.log(bidsArray)
 
+    // let bidsArray = bids.map((bid) => bid.salary_per_year)
+    // console.log(bidsArray)
 
-    // let highestBid = activeBidArray.reduce(function(a, b) {
-    //                 return Math.max(a, b);
-    // });
+    // let highestBid = bidsArray.reduce(function(a, b) {
+    //                     return Math.max(a, b);
+    //                 });
+    // console.log(highestBid)
 
-    
+    const testOut = salary_per_year !== 0 ? "new-player-card" : "player-card"
+    console.log(testOut)
 
     return (
         <div className="player-container">
-            <div className="player-card">
+            <div className={testOut}>
                 <h3>
                     {name}
                     <br></br>

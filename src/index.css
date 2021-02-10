@@ -66,6 +66,24 @@ form {
   border-radius: 10px; 
 } 
 
+.new-player-card {
+  display: inline-block;
+  margin-right: 20px;
+  border: 2px black solid;
+  vertical-align: top;
+  padding: 3px;
+  overflow-y: scroll;    
+  background-color: #29a7ac;
+  height: 400px;
+  width: 200px;
+  box-shadow: 6px 6px grey;
+  border-radius: 10px; 
+} 
+
+/* .bid {
+  border-style: dotted;
+} */
+
 .team-container {
   display:flex;
   justify-content:space-between;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PlayerContainer from '../Containers/PlayerContainer';
-import PlayerCard from '../Components/PlayerCard';
+// import PlayerCard from '../Components/PlayerCard';
 import TeamContainer from '../Containers/TeamContainer';
 import Header from '../Components/Header';
 import TeamPage from '../Components/TeamPage';
@@ -71,7 +71,7 @@ function App() {
             />
           </Route> */}
           <Route exact path="/teams/:id">
-            <TeamPage teams={teams} users={users} players={players} />
+            <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleNewFreeAgent} />
           </Route>
         </Switch>
     </div>

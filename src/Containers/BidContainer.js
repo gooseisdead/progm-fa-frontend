@@ -27,7 +27,7 @@ function BidContainer({ player_id, team }) {
     const renderBids = bids.map((bid) => {
         if (bid.player.id === player_id ) {
         return (
-            <div>
+            <div className="bid">
                 <Bid 
                     key={bid.id}
                     years={bid.years}
