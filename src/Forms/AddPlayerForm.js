@@ -50,6 +50,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
       })
       .then((r) => r.json())
       .then((newPlayer) => localHandleAddPlayer(newPlayer));
+      window.location.reload()
     }
   
       return (

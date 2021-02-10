@@ -37,6 +37,7 @@ function App() {
       .map((team, index) => <option key={index}>{team.name}</option>);
 
     function handleNewFreeAgent(newPlayer) {
+      console.log(newPlayer)
       const updatedPlayersArray = [...players, newPlayer]
       setPlayers(updatedPlayersArray)
     }
