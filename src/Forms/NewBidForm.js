@@ -5,21 +5,18 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
 
     const [years, setYears] = useState(1)
     const [salary, setSalary] = useState(0.4)
-    // const [user, setUser] = useState("")
-    // const [player, setPlayer] = useState("")
 
     const sortedYears = yearSelect.map((year, index) => <option key={index}>{year}</option>);
     const sortedSalary = salaries.map((salary, index) => <option key={index}>{salary}</option>);
 
     function handleYearSelect(event) {
         setYears(event.target.value);
-      }
+    }
     
-      function handleSalarySelect(event) {
-        setSalary(event.target.value);
-      }
+    function handleSalarySelect(event) {
+      setSalary(event.target.value);
+    }
     
-  
     function handleSubmit(event) {
       event.preventDefault();
       fetch("http://localhost:3000/bids", {
@@ -31,8 +28,7 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
           years: years,
           salary_per_year: salary,
           player_id: player_id,
-          user_id: 3
-          
+          user_id: 3  
         }),
       })
       .then((r) => r.json())

@@ -18,9 +18,9 @@ function BidContainer({ player_id, team }) {
         setBids(updatedBidsArray);
     }
 
-    // let bidsArray = bids.map((bid) => bid.player)
+    let bidsArray = bids.map((bid) => bid.player)
 
-    // console.log(bidsArray)
+    console.log(bidsArray)
 
     bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
 

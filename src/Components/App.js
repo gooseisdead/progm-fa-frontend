@@ -1,81 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PlayerContainer from '../Containers/PlayerContainer';
-// import PlayerCard from '../Components/PlayerCard';
 import TeamContainer from '../Containers/TeamContainer';
 import Header from '../Components/Header';
 import TeamPage from '../Components/TeamPage';
 
 function App() {
 
-  const [users, setUsers] = useState([])
-  const [teams, setTeams] = useState([])
-  const [players, setPlayers] = useState([])
+    const [users, setUsers] = useState([])
+    const [teams, setTeams] = useState([])
+    const [players, setPlayers] = useState([])    
+    useEffect(() => {
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/players`)
+          .then((response) => response.json())
+          .then(data => setPlayers(data))
+    },[])
+      // console.log("Players", players)
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/players`)
-        .then((response) => response.json())
-        .then(data => setPlayers(data))
-  },[])
-    // console.log("Players", players)
-  
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/teams`)
-        .then((response) => response.json())
-        .then(setTeams)
-  },[])
-    // console.log("Teams", teams)
-    
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/users`)
-        .then((response) => response.json())
-        .then(setUsers)
-  },[])
-    // console.log("Users", users)
+    useEffect(() => {
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/teams`)
+          .then((response) => response.json())
+          .then(setTeams)
+    },[])
+      // console.log("Teams", teams)
 
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_BASE_URL}/bids`)
-  //       .then((response) => response.json())
-  //       .then(setBids)
-  // },[])
-  //       console.log("Bids", bids)
-
-  let sortedList = teams.sort()
-  .map((team, index) => <option key={index}>{team.name}</option>);
-
-  function handleNewFreeAgent(newPlayer) {
-    const updatedPlayersArray = [...players, newPlayer]
-    setPlayers(updatedPlayersArray)
-  }
-
-  return (
-    <div className="App">
-      <Header />
-        <Switch>
-          <Route exact path="/teams">
-            <TeamContainer teams={teams}
-                          players={players}
-            />
-          </Route>
-          <Route exact path="/players">
-            <PlayerContainer teams={teams} 
+    useEffect(() => {
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/users`)
+          .then((response) => response.json())
+          .then(setUsers)
+    },[])
+      // console.log("Users", users)    
+    let sortedList = teams.sort()
+    .map((team, index) => <option key={index}>{team.name}</option>);    
+    function handleNewFreeAgent(newPlayer) {
+      const updatedPlayersArray = [...players, newPlayer]
+      setPlayers(updatedPlayersArray)
+    }   
+    return (
+      <div className="App">
+        <Header />
+          <Switch>
+            <Route exact path="/teams">
+              <TeamContainer teams={teams}
                             players={players}
-                            setPlayers={setPlayers}
-                            sortedList={sortedList}
-                            localHandleNewFreeAgent={handleNewFreeAgent}
-            />
-          </Route>
-          {/* <Route exact path="/players/:id">
-            <PlayerCard players={players}
-                        sortedList={sortedList}
-            />
-          </Route> */}
-          <Route exact path="/teams/:id">
-            <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleNewFreeAgent} />
-          </Route>
-        </Switch>
-    </div>
-  );
+              />
+            </Route>
+            <Route exact path="/players">
+              <PlayerContainer teams={teams} 
+                              players={players}
+                              setPlayers={setPlayers}
+                              sortedList={sortedList}
+                              localHandleNewFreeAgent={handleNewFreeAgent}
+              />
+            </Route>
+            <Route exact path="/teams/:id">
+              <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleNewFreeAgent} />
+            </Route>
+          </Switch>
+      </div>
+    );
 }
 
 export default App;

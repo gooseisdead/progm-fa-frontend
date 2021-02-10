@@ -49,8 +49,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
         }),
       })
       .then((r) => r.json())
-      .then(data => console.log(data) )
-    //   .then((newPlayer) => localHandleAddPlayer(newPlayer));
+      .then((newPlayer) => localHandleAddPlayer(newPlayer));
       
     }
   

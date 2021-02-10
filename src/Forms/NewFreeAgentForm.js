@@ -35,8 +35,7 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
       }),
     })
     .then((r) => r.json())
-    .then((newPlayer) => localHandleNewFreeAgent(newPlayer));
-    
+    .then((newPlayer) => localHandleNewFreeAgent(newPlayer)); 
   }
 
     return (

@@ -3,7 +3,6 @@ import BidContainer from '../Containers/BidContainer';
 
 function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, bids }) {
 
-
     // let bidsArray = bids.map((bid) => bid.salary_per_year)
     // console.log(bidsArray)
 
