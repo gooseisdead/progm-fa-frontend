@@ -20,7 +20,7 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:3000/players", {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/players`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

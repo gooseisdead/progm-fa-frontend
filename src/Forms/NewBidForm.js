@@ -19,7 +19,7 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
     
     function handleSubmit(event) {
       event.preventDefault();
-      fetch("http://localhost:3000/bids", {
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/bids`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
