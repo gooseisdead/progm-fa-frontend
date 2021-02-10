@@ -9,7 +9,10 @@ function App() {
 
     const [users, setUsers] = useState([])
     const [teams, setTeams] = useState([])
-    const [players, setPlayers] = useState([])    
+    const [players, setPlayers] = useState([])
+    const [searchTerm, setSearchTerm] = useState("");
+    const [positionTerm, setPositionTerm] = useState("C")
+    
     useEffect(() => {
       fetch(`${process.env.REACT_APP_API_BASE_URL}/players`)
           .then((response) => response.json())
@@ -35,7 +38,17 @@ function App() {
     function handleNewFreeAgent(newPlayer) {
       const updatedPlayersArray = [...players, newPlayer]
       setPlayers(updatedPlayersArray)
-    }   
+    }
+
+    const playersToDisplay = players.filter((player) =>
+        // player.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        player.position.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // const positionsToDisplay = players.filter((player) =>
+    //     player.position.toLowerCase().includes(positionTerm.toLowerCase())
+    // );
+
     return (
       <div className="App">
         <Header />
@@ -47,10 +60,17 @@ function App() {
             </Route>
             <Route exact path="/players">
               <PlayerContainer teams={teams} 
-                              players={players}
+                              players={playersToDisplay}
                               setPlayers={setPlayers}
                               sortedList={sortedList}
                               localHandleNewFreeAgent={handleNewFreeAgent}
+                              searchTerm={searchTerm}
+                              onChangeSearch={setSearchTerm}
+                              playersToDisplay={playersToDisplay}
+                              // positionsToDisplay={positionsToDisplay}
+                              positionTerm={positionTerm}
+                              setPositionTerm={setPositionTerm}
+
               />
             </Route>
             <Route exact path="/teams/:id">

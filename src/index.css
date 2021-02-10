@@ -57,7 +57,7 @@ form {
   margin-right: 20px;
   border: 2px black solid;
   vertical-align: top;
-  padding: 3px;
+  /* padding: 3px; */
   overflow-y: scroll;    
   background-color: #eeeeee;
   height: 400px;
@@ -107,6 +107,12 @@ form {
 } 
 
 .time-line {
+  font-size: x-small;
+  font-style: oblique;
+  color: rgb(201, 75, 75);
+}
+
+.real-team {
   font-size: x-small;
   font-style: oblique;
   color: rgb(201, 75, 75);

@@ -49,7 +49,7 @@ function BidContainer({ player_id, team }) {
                         team={team}
                         localHandleNewBid={handleNewBid}
             />
-            <h3>Bid History</h3>
+            <h4>Bid History</h4>
             {renderBids}
         </div>
     )

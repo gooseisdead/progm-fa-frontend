@@ -17,14 +17,11 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
     return (
         <div className="player-container">
             <div className={testOut}>
-                <h3>
-                    {name}
-                    <br></br>
-                    {position}
-                </h3>
-                    <p>{real_mlb_team}</p>
+                <p>{position}</p>
+                <h4>{name}</h4>
+                    <p className="real-team">{real_mlb_team}</p>
                     <p>{team}</p>
-                    <p>{years} years, ${salary_per_year} million</p>
+                    {/* <p>{years} years, ${salary_per_year} million</p> */}
                     <BidContainer player_id={id} team={team} />
             </div>
         </div>

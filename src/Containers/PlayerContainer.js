@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PlayerCard from '../Components/PlayerCard';
 import NewFreeAgentForm from '../Forms/NewFreeAgentForm';
+import FilterForm from '../Forms/FilterForm';
 
-function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNewFreeAgent }) {
+function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNewFreeAgent, searchTerm, onChangeSearch, positionTerm, setPositionTerm }) {
 
     const renderPlayers = players.map((player) => { 
             if (player.team.name === "Free Agent") {
@@ -33,6 +34,7 @@ function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNe
                 sortedList={sortedList}
                 localHandleNewFreeAgent={localHandleNewFreeAgent}
             />
+            <FilterForm searchTerm={searchTerm} onChangeSearch={onChangeSearch} positionTerm={positionTerm} setPositionTerm={setPositionTerm} />
         </div>
         <div className="player-container">
             {renderPlayers}
