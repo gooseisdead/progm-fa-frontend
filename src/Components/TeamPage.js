@@ -6,7 +6,6 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
 
     const [team, setTeam] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-
     const params = useParams();
 
     useEffect(() => {
@@ -23,27 +22,41 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
     const { name, logo, players, user } = team;
 
     let salaryArray = players.map((player) => player.salary_per_year)
-
-    let totalSalary = salaryArray.reduce(function(a, b){
+    let totalSalary = salaryArray.reduce(function(a, b) {
         return a + b;
     }, 0);
     
-    const renderPlayers = players.map((player) => {
-          return (
-              <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million </p>
-          )})
+    const renderFortyMan = players.map((player) => {
+        if (player.minor_league_status === false) {
+            return (
+                <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million </p>
+            )}
+        })
+
+    const renderMinors = players.map((player) => {
+        if (player.minor_league_status === true) {
+            return (
+                <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million </p>
+            )}
+        })
             
     return (
         <div className="team-page">
             <h1>{name}</h1>
-            <p>GM: <b>{user.username}</b></p>
-            <img src={logo} alt={name}></img>
-            <AddPlayerForm key={params} params={params} sortedList={sortedList} localHandleAddPlayer={localHandleAddPlayer} />
-            {renderPlayers}
+                <p>GM: <b>{user.username}</b></p>
+                    <img src={logo} alt={name}></img>
+                        <AddPlayerForm key={params}
+                                params={params}
+                                sortedList={sortedList}
+                                localHandleAddPlayer={localHandleAddPlayer}
+                        />
+                            {renderFortyMan}
             ________________________________________________
-            <br></br>
-            <b>Team Salary: </b>{salaryArray.length} players, {totalSalary.toFixed(1)} million<br></br>
-            <p className="cap">Salary Cap: 155.0 million </p>
+                            {renderMinors}
+                        <br></br>
+                    <p><b>Roster Size: {salaryArray.length} players <p className="max-size">Max Roster Size: 75</p></b> {75 - salaryArray.length} roster slots available</p>
+                    <b>Team Salary: </b>{totalSalary.toFixed(1)} million<br></br>
+                <p className="cap">Salary Cap: 155.0 million </p>
             <p className="available-salary">Available Salary: {155.0 - totalSalary.toFixed(1)}</p>
         </div>
     )

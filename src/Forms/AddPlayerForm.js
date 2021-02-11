@@ -8,7 +8,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
     const [position, setPosition] = useState("C");
     const [selectBy, setSelectBy] = useState("Arizona Diamondbacks");
     const [years, setYears] = useState(1);
-    const [salary, setSalary] = useState(0.4);
+    const [salary, setSalary] = useState(0.5);
   
     const sortedPosition = positionSelect.map((position, index) => 
           <option key={index}>{position}</option>);
@@ -45,6 +45,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
           real_mlb_team: selectBy,
           years: years,
           salary_per_year: salary,
+          minor_league_status: salary === 0.5 ? true : false,
           team_id: params.id
         }),
       })

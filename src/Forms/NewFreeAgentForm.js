@@ -31,6 +31,7 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
         real_mlb_team: selectBy,
         years: 0,
         salary_per_year: 0.0,
+        minor_league_status: false,
         team_id: 31
       }),
     })
