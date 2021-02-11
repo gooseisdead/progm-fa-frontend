@@ -4,6 +4,7 @@ import PlayerContainer from '../Containers/PlayerContainer';
 import TeamContainer from '../Containers/TeamContainer';
 import Header from '../Components/Header';
 import TeamPage from '../Components/TeamPage';
+import OfficialRules from '../Pages/OfficialRules';
 
 function App() {
 
@@ -75,6 +76,9 @@ function App() {
             </Route>
             <Route exact path="/teams/:id">
               <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleNewFreeAgent} />
+            </Route>
+            <Route exact path="/official_rules">
+              <OfficialRules />
             </Route>
           </Switch>
       </div>

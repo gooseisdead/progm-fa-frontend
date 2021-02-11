@@ -39,7 +39,7 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
                 <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million </p>
             )}
         })
-            
+
     return (
         <div className="team-page">
             <AddPlayerForm key={params}
@@ -55,9 +55,9 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
                                 {renderMinors}
                             <br></br>
                         <p><b>Roster Size: {salaryArray.length} players <p className="max-size">Max Roster Size: 75</p></b> {75 - salaryArray.length} roster slots available</p>
-                    <b>Team Salary: </b>{totalSalary.toFixed(1)} million<br></br>
+                    <b>Team Salary: </b>{totalSalary} million<br></br>
                 <p className="cap">Salary Cap: 155.0 million </p>
-            <p className="available-salary">Available Salary: {155.0 - totalSalary.toFixed(1)}</p>
+            <p className="available-salary">Available Salary: {155.0 - totalSalary}</p>
         </div>
     )
 }

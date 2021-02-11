@@ -4,7 +4,7 @@ import { salaries, yearSelect } from '../exports/selctions.js'
 function NewBidForm({ player_id, localHandleNewBid }) {
 
     const [years, setYears] = useState(1)
-    const [salary, setSalary] = useState(0.4)
+    const [salary, setSalary] = useState(0.5)
 
     const sortedYears = yearSelect.map((year, index) => <option key={index}>{year}</option>);
     const sortedSalary = salaries.map((salary, index) => <option key={index}>{salary}</option>);

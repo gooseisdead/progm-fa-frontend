@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { positionSelect } from '../exports/selctions.js'
 import { salaries, yearSelect } from '../exports/selctions.js'
 
-function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
+function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTeams }) {
 
     const [name, setName] = useState("");
     const [position, setPosition] = useState("C");
@@ -53,6 +53,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
       .then((newPlayer) => localHandleAddPlayer(newPlayer));
       window.location.reload()
     }
+    
   
       return (
         <form onSubmit={handleSubmit} className="new-freeagent-form">
