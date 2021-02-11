@@ -12,7 +12,7 @@ function App() {
     const [players, setPlayers] = useState([])
     const [searchTerm, setSearchTerm] = useState("");
     const [positionTerm, setPositionTerm] = useState("C")
-    
+
     useEffect(() => {
       fetch(`${process.env.REACT_APP_API_BASE_URL}/players`)
           .then((response) => response.json())

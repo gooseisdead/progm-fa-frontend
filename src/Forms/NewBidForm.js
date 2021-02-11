@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { salaries, yearSelect } from '../exports/selctions.js'
 
-function NewBidForm({ player_id, team, localHandleNewBid }) {
+function NewBidForm({ player_id, localHandleNewBid }) {
 
     const [years, setYears] = useState(1)
     const [salary, setSalary] = useState(0.4)
@@ -14,7 +14,7 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
     }
     
     function handleSalarySelect(event) {
-      setSalary(event.target.value);
+        setSalary(event.target.value);
     }
     
     function handleSubmit(event) {
@@ -54,24 +54,6 @@ function NewBidForm({ player_id, team, localHandleNewBid }) {
           <input type="submit" value="Place Your Bid" />
         </form>
       );
-  
-
-
-
-
-
-
-
-
-    // return (
-    //     <p>form</p>
-    //     <label>
-    //         <strong>Team:</strong>
-    //             <select onChange={handleTeamSelect} value={selectBy}>
-    //                 {sortedList}
-    //             </select>
-    //         </label>
-    // )
 }
 
 export default NewBidForm;
