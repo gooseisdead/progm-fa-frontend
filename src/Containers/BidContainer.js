@@ -35,7 +35,7 @@ function BidContainer({ player_id, team }) {
                     player={bid.player}
                     created={bid.created_at}
                     username={bid.user.username}
-                    team={bid.user.team.name}
+                    team={bid.user.team.logo}
                 />
             </div>
             )

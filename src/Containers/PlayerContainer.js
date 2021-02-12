@@ -34,10 +34,12 @@ function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNe
                 sortedList={sortedList}
                 localHandleNewFreeAgent={localHandleNewFreeAgent}
             />
+            <h1>Free Agents</h1>
             <FilterForm searchTerm={searchTerm} onChangeSearch={onChangeSearch} positionTerm={positionTerm} setPositionTerm={setPositionTerm} />
         </div>
         <div className="player-container">
-            {renderPlayers}
+                <br></br>
+                    {renderPlayers}
         </div>
         </>
     )

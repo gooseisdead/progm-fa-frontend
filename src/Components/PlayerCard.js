@@ -3,8 +3,10 @@ import BidContainer from '../Containers/BidContainer';
 import catcher from '../exports/catcher.png'
 import rp from '../exports/rp.png'
 import sp from '../exports/sp.png'
-import infield from '../exports/infield.png'
+import first from '../exports/first.png'
 import outfield from '../exports/outfield.png'
+import third from '../exports/third.png'
+import shortstop from '../exports/shortstop.png'
 
 function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, bids }) {
 
@@ -16,8 +18,8 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
     //                 });
     // console.log(highestBid)
 
-    const testOut = salary_per_year !== 0 ? "new-player-card" : "player-card"
-    console.log(testOut)
+    // const testOut = salary_per_year !== 0 ? "new-player-card" : "player-card"
+    // console.log(testOut)
 
     const renderIcon = () => {
         if (position === "C") {
@@ -32,28 +34,33 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
             return (
                 <img src={rp} alt="pitcher-icon" className="icon-img"></img>
             )
-        } else if (position === "1B" || position === "2B" || position === "3B" || position === "SS") {
+        } else if (position === "1B") {
             return (
-                <img src={infield} alt="pitcher-icon" className="icon-img"></img>
+                <img src={first} alt="first-baseman-icon" className="icon-img"></img>
             )
-        } else {
+        } else if (position === "2B" || position === "3B") {
             return (
-                <img src={outfield} alt="pitcher-icon" className="icon-img"></img>
+                <img src={third} alt="third-baseman-icon" className="icon-img"></img>
+            )
+        } else if (position === "SS") {
+            return (
+                <img src={shortstop} alt="shortstop-icon" className="icon-img"></img>
+            )
+        } else if (position === "OF") {
+            return (
+                <img src={outfield} alt="outfield-icon" className="icon-img"></img>
             )
         }
     }
 
     return (
         <div className="player-container">
-            <div className={testOut}>
+            <div className="player-card">
                 <p>{position}</p>
-                <b>{name}</b>
+                    <p className="card-name">{name}</p>
                 <br></br>
-                {renderIcon()}
-                {/* <img src={catcher} alt="catcher-icon"></img> */}
-                    <p className="real-team">{real_mlb_team}</p>
-                    {/* <p>{team}</p> */}
-                    {/* <p>{years} years, ${salary_per_year} million</p> */}
+                    {renderIcon()}
+                <p className="real-team">{real_mlb_team}</p>
                     <BidContainer player_id={id} team={team} />
             </div>
         </div>
