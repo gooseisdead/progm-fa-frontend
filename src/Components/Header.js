@@ -15,7 +15,7 @@ function Header() {
                 Pro GM Teams
             </NavLink>
             <NavLink to="/official_rules" className="button">
-                OfficialRules
+                Official Rules
             </NavLink>
         </nav>
     </header>

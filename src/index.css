@@ -65,6 +65,19 @@ form {
   border-radius: 10px; 
 } 
 
+/* .signed-player-card {
+  display: inline-block;
+  margin-right: 20px;
+  border: 2px black solid;
+  vertical-align: top;
+  overflow-y: scroll;
+  background-image: url("https://bloximages.chicago2.vip.townnews.com/nwitimes.com/content/tncms/assets/v3/editorial/3/d4/3d41d821-432f-5b74-82b0-25aaea5300ca/53acabd8eefba.image.jpg"); 
+  height: 698px;
+  width: 300px;
+  box-shadow: 6px 6px grey;
+  border-radius: 10px; 
+}  */
+
 .card-name {
   font-size: 26px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

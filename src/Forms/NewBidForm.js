@@ -5,9 +5,15 @@ function NewBidForm({ player_id, localHandleNewBid }) {
 
     const [years, setYears] = useState(1)
     const [salary, setSalary] = useState(0.5)
+    const [formHidden, setFormHidden] = useState(false)
 
     const sortedYears = yearSelect.map((year, index) => <option key={index}>{year}</option>);
     const sortedSalary = salaries.map((salary, index) => <option key={index}>{salary}</option>);
+
+    function testInterval() {
+      //PATCH function
+      setFormHidden(true)
+    }
 
     function handleYearSelect(event) {
         setYears(event.target.value);
@@ -32,11 +38,14 @@ function NewBidForm({ player_id, localHandleNewBid }) {
         }),
       })
       .then((r) => r.json())
-      .then((newBid) => localHandleNewBid(newBid))
+      .then((newBid) => localHandleNewBid(newBid));
+      setTimeout(testInterval, 5000)
     }
-  
+
       return (
-        <form onSubmit={handleSubmit} className="new-bid-form">
+        <>
+        { !formHidden ? 
+        <form onSubmit={handleSubmit} data-id={player_id} className="new-bid-form">
           <label>
             <strong> Years: </strong>
                 <select onChange={handleYearSelect} value={years} placeholder="Select Years">
@@ -52,8 +61,9 @@ function NewBidForm({ player_id, localHandleNewBid }) {
         </label>
         <br></br>
           <input type="submit" value="Place Your Bid" />
-        </form>
-      );
+        </form> : <p>SIGNED!</p> }
+        </>
+      )
 }
 
 export default NewBidForm;

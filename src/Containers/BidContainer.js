@@ -5,6 +5,7 @@ import NewBidForm from '../Forms/NewBidForm';
 function BidContainer({ player_id, team }) {
 
     const [bids, setBids] = useState([])
+    // const [playerSigned, setPlayerSigned] = useState(false)
 
     useEffect(() => {
       fetch(`${process.env.REACT_APP_API_BASE_URL}/bids`)
@@ -19,8 +20,8 @@ function BidContainer({ player_id, team }) {
     }
 
     let bidsArray = bids.map((bid) => bid.player)
-
     console.log(bidsArray)
+    console.log(bids)
 
     bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
 

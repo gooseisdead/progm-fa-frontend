@@ -38,7 +38,12 @@ function App() {
       .map((team, index) => <option key={index}>{team.name}</option>);
 
     function handleNewFreeAgent(newPlayer) {
-      console.log(newPlayer)
+      console.log(newPlayer.team)
+      const updatedPlayersArray = [...players, newPlayer]
+      setPlayers(updatedPlayersArray)
+    }
+
+    function handleAddPlayer(newPlayer) {
       const updatedPlayersArray = [...players, newPlayer]
       setPlayers(updatedPlayersArray)
     }
@@ -75,7 +80,7 @@ function App() {
               />
             </Route>
             <Route exact path="/teams/:id">
-              <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleNewFreeAgent} />
+              <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleAddPlayer} />
             </Route>
             <Route exact path="/official_rules">
               <OfficialRules />

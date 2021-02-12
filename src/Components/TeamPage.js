@@ -43,10 +43,10 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
     return (
         <div className="team-page">
             <AddPlayerForm key={params}
-                                params={params}
-                                sortedList={sortedList}
-                                localHandleAddPlayer={localHandleAddPlayer}
-                        />
+                            params={params}
+                            sortedList={sortedList}
+                            localHandleAddPlayer={localHandleAddPlayer}
+                            />
             <h1>{name}</h1>
                 <p>GM: <b>{user.username}</b></p>
                     <img src={logo} alt={name}></img>

@@ -18,8 +18,6 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
     //                 });
     // console.log(highestBid)
 
-    // const testOut = salary_per_year !== 0 ? "new-player-card" : "player-card"
-    // console.log(testOut)
 
     const renderIcon = () => {
         if (position === "C") {
