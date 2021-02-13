@@ -3,6 +3,8 @@ import { format } from "date-fns";
 
 function Bid({ years, salary_per_year, created, username, team }) {
 
+
+    console.log(created)
     const bidDate = new Date(created)
 
     return (

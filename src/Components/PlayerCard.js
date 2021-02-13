@@ -8,15 +8,16 @@ import outfield from '../exports/outfield.png'
 import third from '../exports/third.png'
 import shortstop from '../exports/shortstop.png'
 
-function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, bids }) {
+function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, playerBids }) {
 
     // let bidsArray = bids.map((bid) => bid.salary_per_year)
-    // console.log(bidsArray)
 
-    // let highestBid = bidsArray.reduce(function(a, b) {
+    // let highestBid = bidsArray.length !== 0 ? bidsArray.reduce(function(a, b) {
     //                     return Math.max(a, b);
-    //                 });
+    //                 }) : undefined;
     // console.log(highestBid)
+
+
 
 
     const renderIcon = () => {
@@ -54,10 +55,11 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
     return (
         <div className="player-container">
             <div className="player-card">
-                <p>{position}</p>
+                {/* <p>{position}</p> */}
                     <p className="card-name">{name}</p>
                 <br></br>
                     {renderIcon()}
+                <p className="position-line">{position}</p>
                 <p className="real-team">{real_mlb_team}</p>
                     <BidContainer player_id={id} team={team} />
             </div>

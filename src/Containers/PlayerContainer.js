@@ -5,6 +5,10 @@ import FilterForm from '../Forms/FilterForm';
 
 function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNewFreeAgent, searchTerm, onChangeSearch, positionTerm, setPositionTerm }) {
 
+    let playerBids = players.map((player) => player.bids)
+
+    // console.log(playerBids)
+
     const renderPlayers = players.map((player) => { 
             if (player.team.name === "Free Agent") {
                 return (
@@ -22,6 +26,7 @@ function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNe
                             teams={teams}
                             setPlayers={setPlayers}
                             sortedList={sortedList}
+                            playerBids={playerBids}
                         />
                     </div>
                 )}
@@ -30,11 +35,11 @@ function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNe
     return (
         <>
         <div className="form-container">
+        <h1 className="fa-header">Free Agency</h1>
             <NewFreeAgentForm
                 sortedList={sortedList}
                 localHandleNewFreeAgent={localHandleNewFreeAgent}
             />
-            <h1>Free Agents</h1>
             <FilterForm searchTerm={searchTerm} onChangeSearch={onChangeSearch} positionTerm={positionTerm} setPositionTerm={setPositionTerm} />
         </div>
         <div className="player-container">

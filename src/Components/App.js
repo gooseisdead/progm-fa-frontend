@@ -38,7 +38,7 @@ function App() {
       .map((team, index) => <option key={index}>{team.name}</option>);
 
     function handleNewFreeAgent(newPlayer) {
-      console.log(newPlayer.team)
+      // console.log(newPlayer.team)
       const updatedPlayersArray = [...players, newPlayer]
       setPlayers(updatedPlayersArray)
     }
@@ -76,7 +76,6 @@ function App() {
                               playersToDisplay={playersToDisplay}
                               // positionTerm={positionTerm}
                               // setPositionTerm={setPositionTerm}
-
               />
             </Route>
             <Route exact path="/teams/:id">

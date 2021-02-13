@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Bid from '../Components/Bid';
 import NewBidForm from '../Forms/NewBidForm';
 
-function BidContainer({ player_id, team }) {
+function BidContainer({ player_id, team, highestBid }) {
 
     const [bids, setBids] = useState([])
     // const [playerSigned, setPlayerSigned] = useState(false)
@@ -14,14 +14,16 @@ function BidContainer({ player_id, team }) {
     },[])
         // console.log("Bids", bids)
 
+    // console.log(highestBid)
+
     function handleNewBid(newBid) {
         const updatedBidsArray = [...bids, newBid];
         setBids(updatedBidsArray);
     }
 
-    let bidsArray = bids.map((bid) => bid.player)
-    console.log(bidsArray)
-    console.log(bids)
+    // let bidsArray = bids.map((bid) => bid.player.id)
+    // console.log(bidsArray)
+    // console.log(bids)
 
     bids.sort((b, a) => {return a.salary_per_year- b.salary_per_year})
 
