@@ -7,6 +7,10 @@ function FilterForm({ searchTerm, onChangeSearch }) {
         onChangeSearch(event.target.value);
     }
 
+    function handleClick() {
+      onChangeSearch("")
+    }
+
     const sortedPosition = positionSelect.map((position, index) => 
     <option key={index}>{position}</option>);
     
@@ -22,6 +26,8 @@ function FilterForm({ searchTerm, onChangeSearch }) {
                       {sortedPosition}
                   </select>
             </label>
+            <br></br>
+            <button onClick={handleClick}>Reset Filter</button>
             {/* <i className="search icon" />
           </div> */}
         </div>

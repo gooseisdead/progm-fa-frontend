@@ -52,6 +52,38 @@ function App() {
         player.position.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    function handleDeleteClick(id) {
+      fetch(`http://localhost:3000/players/${id}`, {
+        method: "DELETE",
+      })
+        .then((r) => r.json())
+        .then(() => {
+          const updatedPlayers = players.filter((player) => player.id !== id);
+          setPlayers(updatedPlayers);
+        });
+    }
+
+    function fortyMan(updatedPlayer) {
+      const updatedPlayers = players.map((player) =>
+        player.id === updatedPlayer.id ? updatedPlayer : player
+      );
+      setPlayers(updatedPlayers);
+    }
+
+    function handle40Man(id) {
+        fetch(`http://localhost:3000/players/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            minor_league_status: false,
+          })
+        })
+          .then((r) => r.json())
+          .then(fortyMan)
+      }
+
     // const positionsToDisplay = players.filter((player) =>
     //     player.position.toLowerCase().includes(positionTerm.toLowerCase())
     // );
@@ -73,13 +105,10 @@ function App() {
                               localHandleNewFreeAgent={handleNewFreeAgent}
                               searchTerm={searchTerm}
                               onChangeSearch={setSearchTerm}
-                              playersToDisplay={playersToDisplay}
-                              // positionTerm={positionTerm}
-                              // setPositionTerm={setPositionTerm}
-              />
+                    />
             </Route>
             <Route exact path="/teams/:id">
-              <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleAddPlayer} />
+              <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleAddPlayer} onDelete={handleDeleteClick} on40Man={handle40Man}/>
             </Route>
             <Route exact path="/official_rules">
               <OfficialRules />

@@ -8,7 +8,7 @@ import outfield from '../exports/outfield.png'
 import third from '../exports/third.png'
 import shortstop from '../exports/shortstop.png'
 
-function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per_year, playerBids }) {
+function PlayerCard({ id, name, position, real_mlb_team, team, expand, years, salary_per_year, playerBids }) {
 
     // let bidsArray = bids.map((bid) => bid.salary_per_year)
 
@@ -18,6 +18,7 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
     // console.log(highestBid)
 
 
+    const cardClass = !expand ? "player-card" : "expanded-player-card"
 
 
     const renderIcon = () => {
@@ -54,8 +55,7 @@ function PlayerCard({ id, name, position, real_mlb_team, team, years, salary_per
 
     return (
         <div className="player-container">
-            <div className="player-card">
-                {/* <p>{position}</p> */}
+            <div className={cardClass}>
                     <p className="card-name">{name}</p>
                 <br></br>
                     {renderIcon()}

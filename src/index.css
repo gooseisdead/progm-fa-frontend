@@ -51,7 +51,6 @@ form {
   justify-content: center;
   overflow: hidden;
   padding: 10px;
-  
 }
 
 .player-card {
@@ -62,24 +61,25 @@ form {
   overflow-y: scroll;
   background-image: url("https://bloximages.chicago2.vip.townnews.com/nwitimes.com/content/tncms/assets/v3/editorial/3/d4/3d41d821-432f-5b74-82b0-25aaea5300ca/53acabd8eefba.image.jpg"); 
   background-size: 2000px;
-  height: 498px;
+  height: 568px;
   width: 300px;
-  box-shadow: 6px 6px grey;
+  box-shadow: 9px 6px rgb(48, 49, 48);
   border-radius: 10px; 
 } 
 
-/* .signed-player-card {
+.expanded-player-card {
   display: inline-block;
   margin-right: 20px;
   border: 2px black solid;
   vertical-align: top;
   overflow-y: scroll;
   background-image: url("https://bloximages.chicago2.vip.townnews.com/nwitimes.com/content/tncms/assets/v3/editorial/3/d4/3d41d821-432f-5b74-82b0-25aaea5300ca/53acabd8eefba.image.jpg"); 
-  height: 698px;
+  background-size: 2000px;
+  height: 805px;
   width: 300px;
-  box-shadow: 6px 6px grey;
+  box-shadow: 9px 6px rgb(48, 49, 48);
   border-radius: 10px; 
-}  */
+} 
 
 .card-name {
   font-size: 26px;
@@ -253,7 +253,7 @@ form {
 
 .fa-header {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 93px;
+  font-size: 73px;
   font-weight: 600;
   color: rgb(250, 243, 243);
   letter-spacing: 0.02em;

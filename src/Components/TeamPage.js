@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddPlayerForm from '../Forms/AddPlayerForm';
+import MinorLeagueManager from '../Forms/MinorLeagueManager';
 
-function TeamPage({ sortedList, localHandleAddPlayer }) {
+function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
 
     const [team, setTeam] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [showForm, setShowForm] = useState(false)
     const params = useParams();
 
     useEffect(() => {
@@ -37,18 +39,27 @@ function TeamPage({ sortedList, localHandleAddPlayer }) {
     const renderMinors = players.map((player) => {
         if (player.minor_league_status === true) {
             return (
-                <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million </p>
+                <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million <MinorLeagueManager id={player.id} onDelete={onDelete} on40Man={on40Man} /></p>
             )}
         })
+
+    function clickHandler() {
+        setShowForm((showForm) => !showForm)
+    }
+    
 
     return (
         <div className="team-page-container">
         <div className="team-page">
+        <button onClick={clickHandler} >Show/hide admin form</button>
+          {showForm ? 
             <AddPlayerForm key={params}
                             params={params}
                             sortedList={sortedList}
                             localHandleAddPlayer={localHandleAddPlayer}
-                            />
+                            /> :
+                            null
+                            } 
             <h1>{name}</h1>
                 <p>GM: <b>{user.username}</b></p>
                     <img src={logo} alt={name}></img>
