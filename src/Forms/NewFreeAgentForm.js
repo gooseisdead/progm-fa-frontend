@@ -7,9 +7,6 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
   const [position, setPosition] = useState("C")
   const [selectBy, setSelectBy] = useState("Arizona Diamondbacks");
 
-  const sortedPosition = positionSelect.map((position, index) => 
-        <option key={index}>{position}</option>);
-
   function handleTeamSelect(event) {
     setSelectBy(event.target.value);
   }
@@ -17,6 +14,9 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
   function handlePositionSelect(event) {
     setPosition(event.target.value);
   }
+
+  const sortedPosition = positionSelect.map((position, index) => 
+        <option key={index}>{position}</option>);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -40,28 +40,35 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
   }
 
     return (
-      <form onSubmit={handleSubmit} className="new-freeagent-form">
-        <input 
-          name="name"
-          placeholder="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label>
-            <strong> Position: </strong>
-                <select onChange={handlePositionSelect} value={position}>
-                    {sortedPosition}
-                </select>
-        </label>
-        <label>
-            <strong> MLB Team: </strong>
-                <select onChange={handleTeamSelect} value={selectBy}>
-                    {sortedList}
-                </select>
-        </label>
-        <br></br>
-        <input type="submit" value="Declare New Free Agent" />
-      </form>
+      <div className="fa-form-container">
+        <form onSubmit={handleSubmit} className="new-freeagent-form">
+            <label>
+                <strong> Player Name: </strong>
+                  <input 
+                    name="name"
+                    placeholder="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+            </label>
+                  <br></br>
+            <label>
+                <strong> Position: </strong>
+                  <select onChange={handlePositionSelect} value={position}>
+                      {sortedPosition}
+                  </select>
+            </label>
+                  <br></br>
+            <label>
+                <strong>MLB Team: </strong>
+                  <select onChange={handleTeamSelect} value={selectBy}>
+                      {sortedList}
+                  </select>
+            </label>
+                  <br></br>
+          <input type="submit" value="Declare New Free Agent" />
+        </form>
+      </div>
     );
 }
 
