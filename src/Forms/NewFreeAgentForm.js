@@ -43,7 +43,7 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
       <div className="fa-form-container">
         <form onSubmit={handleSubmit} className="new-freeagent-form">
             <label>
-                <strong> Player Name: </strong>
+                <strong className="strong-new"> Player Name: </strong>
                   <input 
                     name="name"
                     placeholder="name"
@@ -51,21 +51,21 @@ function NewFreeAgentForm({ localHandleNewFreeAgent, sortedList }) {
                     onChange={(e) => setName(e.target.value)}
                   />
             </label>
-                  <br></br>
-            <label>
-                <strong> Position: </strong>
+            <br></br>
+          <label>
+              <strong className="strong-new">Position: </strong>
                   <select onChange={handlePositionSelect} value={position}>
                       {sortedPosition}
                   </select>
-            </label>
-                  <br></br>
-            <label>
-                <strong>MLB Team: </strong>
+          </label>
+          <br></br>
+          <label>
+              <strong className="strong-new">MLB Team: </strong>
                   <select onChange={handleTeamSelect} value={selectBy}>
                       {sortedList}
                   </select>
-            </label>
-                  <br></br>
+          </label>
+          <br></br>
           <input type="submit" value="Declare New Free Agent" />
         </form>
       </div>

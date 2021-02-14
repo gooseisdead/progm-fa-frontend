@@ -255,9 +255,9 @@ img {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 73px;
   font-weight: 600;
-  color: rgb(250, 243, 243);
+  color: rgb(47, 97, 204);
   letter-spacing: 0.02em;
-  text-shadow: 0 0 0.15em #3b4141;
+  text-shadow: 0 0 0.15em #bcc7c7;
   /* text-shadow: 0 0 5px rgb(110, 117, 119),
   0 0 20px #fff,
   0 0 40px rgb(77, 185, 185),
@@ -293,30 +293,31 @@ img {
   padding: 3px;
   overflow-y: scroll;    
   background-color: #c6cfe2;
-  height: 190px;
+  height: 210px;
   width: 630px;
   border-radius: 10px;
   border-style: solid;
   border-width: 6px;
   align-content: center;
   background-image: url("https://images.template.net/wp-content/uploads/2017/05/fimg-contract.jpg");
-  background-size: 100%;
+  background-size: 710px;
 }
 
 /* .fa-form-container {
   align-content: center;
 } */
 
-strong {
-  font-size: 28px;
+.strong-new {
+  font-size: 33px;
   font-weight: 600;
-  color: rgb(228, 217, 70);
+  color: rgb(247, 231, 86);
   letter-spacing: 0.02em;
   text-shadow: 0 0 0.15em #151616;
-  text-shadow: 0 0 5px rgb(110, 117, 119),
+  text-shadow: 0 0 5px rgb(13, 13, 14),
   0 0 20px rgb(29, 19, 19),
   0 0 40px rgb(29, 29, 26),
   0 0 80px rgb(13, 14, 10),
-  0 0 90px rgb(238, 238, 230),
-  /* 0 0 100px rgb(56, 61, 61) */
+  0 0 90px rgb(5, 5, 5),
 }
+
+

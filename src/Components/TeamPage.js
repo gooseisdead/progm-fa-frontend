@@ -51,7 +51,7 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
     return (
         <div className="team-page-container">
         <div className="team-page">
-        <button onClick={clickHandler} >Show/hide admin form</button>
+        <button onClick={clickHandler}>Show/hide admin form</button>
           {showForm ? 
             <AddPlayerForm key={params}
                             params={params}

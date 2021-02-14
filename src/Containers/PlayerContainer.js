@@ -6,12 +6,17 @@ import FilterForm from '../Forms/FilterForm';
 function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNewFreeAgent, searchTerm, onChangeSearch, positionTerm, setPositionTerm }) {
 
     const [expand, setExpand] = useState(false)
+    const [newShowForm, setNewShowForm] = useState(false)
 
     function handleExpand() {
         setExpand((expand) => !expand)
     }
 
-    const buttonLine = !expand ? "Expand Free Agent Cards" : "Minimize Free Agents"
+    function handleShowForm() {
+        setNewShowForm((newShowForm) => !newShowForm)
+    }
+
+    const expandLine = !expand ? "Expand Free Agent Cards" : "Minimize Free Agents"
 
     let playerBids = players.map((player) => player.bids)
 
@@ -45,11 +50,16 @@ function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNe
         <>
         <div className="form-container">
         <h1 className="fa-header">Free Agency</h1>
+        <button onClick={handleShowForm} className="new-fa-button">Open Player For Free Agency</button>
+            {newShowForm ? 
             <NewFreeAgentForm
                 sortedList={sortedList}
                 localHandleNewFreeAgent={localHandleNewFreeAgent}
-            />
-            <button onClick={handleExpand}>{buttonLine}</button>
+            /> :
+            null
+            }
+            <br></br>
+            <button onClick={handleExpand}>{expandLine}</button>
             <FilterForm searchTerm={searchTerm} onChangeSearch={onChangeSearch} positionTerm={positionTerm} setPositionTerm={setPositionTerm} />
         </div>
         <div className="player-container">
