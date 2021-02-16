@@ -17,15 +17,6 @@ img {
   max-height: 100px;
 }
 
-/* form {
-  padding: 5px;
-  border-style: double;
-  border-color: black;
-  border-radius: 10px;
-  border-width: 6px;
-  background-color: rgb(142, 147, 167);
-} */
-
 .button{
   position: relative;
   display: block;
@@ -40,17 +31,35 @@ img {
   text-transform: uppercase;
   overflow: hidden;
   width: 70%;
-  height: 20px;
+  height: 40px;
   background: rgba(27, 25, 25, 0.2);
 }
 
 .player-container {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   padding: 10px;
+}
+
+.player-container::before {    
+  content: "";
+  border: 3px black solid;
+  border-color: black;
+  border-radius: 10px;
+  background-color: rgb(196, 204, 126);
+  background-size: cover;
+  position: absolute;
+  margin-left: 250px;
+  margin-right: 250px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
 }
 
 .team-link {
@@ -63,13 +72,16 @@ a:visited {
 
 .player-card {
   display: inline-block;
+  position: relative;
   margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
   border: 2px black solid;
   vertical-align: top;
   overflow-y: scroll;
   background-image: url("https://bloximages.chicago2.vip.townnews.com/nwitimes.com/content/tncms/assets/v3/editorial/3/d4/3d41d821-432f-5b74-82b0-25aaea5300ca/53acabd8eefba.image.jpg"); 
   background-size: 2000px;
-  height: 450px;
+  height: 220px;
   width: 300px;
   box-shadow: 9px 6px rgb(48, 49, 48);
   border-radius: 10px; 
@@ -77,13 +89,16 @@ a:visited {
 
 .expanded-player-card {
   display: inline-block;
+  position: relative;
   margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
   border: 2px black solid;
   vertical-align: top;
   overflow-y: scroll;
   background-image: url("https://bloximages.chicago2.vip.townnews.com/nwitimes.com/content/tncms/assets/v3/editorial/3/d4/3d41d821-432f-5b74-82b0-25aaea5300ca/53acabd8eefba.image.jpg"); 
   background-size: 2000px;
-  height: 805px;
+  height: 530px;
   width: 300px;
   box-shadow: 9px 6px rgb(48, 49, 48);
   border-radius: 10px; 
@@ -106,18 +121,37 @@ a:visited {
 }
 
 .team-container {
+  position:relative;
   display:flex;
   justify-content:space-between;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  
-  background-image: url("./exports/field.png");
+  margin-left: 110px;
+  margin-right: 110px;
   background-size: 500px;
 } 
 
+.team-container::before {    
+  content: "";
+  border: 3px black solid;
+  border-color: black;
+  border-radius: 10px;
+  background-color: rgb(71, 116, 116);
+  background-size: cover;
+  position: absolute;
+  margin-left: 110px;
+  margin-right: 110px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+
 .team-container-cards {
+  position: relative;
   display:flex;
   justify-content:space-between;
   flex-wrap: wrap;
@@ -136,7 +170,7 @@ a:visited {
   overflow-y: scroll;    
   height: 290px;
   width: 190px;
-  box-shadow: 6px 6px grey;
+  box-shadow: 6px 6px rgb(46, 46, 37);
   border-radius: 10px; 
   background-image: url("./exports/baseball.png");
   background-size: 550px;
@@ -178,6 +212,20 @@ a:visited {
   0 0 100px rgb(56, 61, 61),
 }
 
+.gm-line {
+  font-size: 33px;
+  font-weight: 600;
+  color: rgb(41, 34, 34);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #d6dfdf;
+  text-shadow: 0 0 5px rgb(34, 32, 32),
+  /* 0 0 20px #fff,
+  0 0 40px rgb(73, 107, 107),
+  0 0 80px rgb(90, 112, 112),
+  0 0 90px rgb(116, 126, 126),
+  0 0 100px rgb(56, 61, 61), */
+}
+
 .navbar {
   grid-template-columns: repeat(16, 1fr);
   border-radius: 0 0 50px 50px;
@@ -190,6 +238,7 @@ a:visited {
 }
 .nav-wrapper {
   display: flex;
+  height: 100px;
   align-items: center;
   justify-content: center;
 }
@@ -224,6 +273,15 @@ a:visited {
   /* background-color: rgb(130, 190, 145); */
   background-image: url("https://previews.123rf.com/images/munktcu/munktcu1311/munktcu131100645/23756054-baseball-infield-dirt-patterns-from-being-raked.jpg");
   opacity: 90%;
+}
+
+.admin-form {
+  padding: 3px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  border-width: 6px;
+  /* background-color: rgb(130, 190, 145); */
 }
 
 .bid-scroll {
@@ -294,9 +352,11 @@ a:visited {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 73px;
   font-weight: 600;
+  -webkit-text-stroke: 2px rgb(33, 44, 78);
   color: rgb(67, 91, 141);
   letter-spacing: 0.02em;
-  text-shadow: 0 0 0.15em #bcc7c7;
+  text-shadow: 0 0 0.15em #4d599c;
+  text-shadow: 0 0 5px rgb(93, 152, 168),
   /* text-shadow: 0 0 5px rgb(110, 117, 119),
   0 0 20px #fff,
   0 0 40px rgb(77, 185, 185),
@@ -305,29 +365,96 @@ a:visited {
   0 0 100px rgb(56, 61, 61) */
 }
 
+.team-header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 73px;
+  font-weight: 600;
+  -webkit-text-stroke: 2px rgb(33, 44, 78);
+  color: rgb(67, 91, 141);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #4d599c;
+  text-shadow: 0 0 5px rgb(93, 152, 168),
+  /* 0 0 20px rgb(91, 120, 163),
+  0 0 40px rgb(122, 100, 26),
+  0 0 80px rgb(199, 182, 104),
+  0 0 90px rgb(179, 167, 115),
+  0 0 100px rgb(56, 61, 61) */
+}
+
+.home-header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 73px;
+  font-weight: 600;
+  -webkit-text-stroke: 2px rgb(33, 44, 78);
+  color: rgb(67, 91, 141);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #4d599c;
+  text-shadow: 0 0 5px rgb(93, 152, 168),
+  /* 0 0 20px rgb(91, 120, 163),
+  0 0 40px rgb(122, 100, 26),
+  0 0 80px rgb(199, 182, 104),
+  0 0 90px rgb(179, 167, 115),
+  0 0 100px rgb(56, 61, 61) */
+}
+
+.team-name-header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 73px;
+  font-weight: 600;
+  -webkit-text-stroke: 2px rgb(33, 44, 78);
+  color: rgb(67, 91, 141);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #4d599c;
+  text-shadow: 0 0 5px rgb(93, 152, 168),
+  /* 0 0 20px rgb(91, 120, 163),
+  0 0 40px rgb(122, 100, 26),
+  0 0 80px rgb(199, 182, 104),
+  0 0 90px rgb(179, 167, 115),
+  0 0 100px rgb(56, 61, 61) */
+}
+
 .team-page-container {
   display: inline-block;
+  position: relative;
   border: 2px black solid;
   vertical-align: top;
   padding: 3px;
-  overflow-y: scroll;    
-  background-color: #c6cfe2;
+  overflow-y: scroll;
   height: 925px;
-  width: 630px;
+  width: 690px;
   border-radius: 10px;
-  border-style: solid;
+  border-style: double;
   border-width: 6px;
   align-content: center;
 }
 
+.team-page-container::before {    
+  content: "";
+  border: 3px black solid;
+  border-color: black;
+  border-radius: 10px;
+  background-color: rgb(151, 142, 142);
+  background-size: cover;
+  position: absolute;
+  height: 1495px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.8;
+}
+
 .team-page {
+  position: relative;
   background-color: wheat;
   width: 630px
 }
 
-.boston-red-sox {
-  background-image: url("https://cdn.wallpapersafari.com/33/53/bSham0.png");
-  background-size: 690px;
+.orioles, .red-sox, .yankees, .blue-jays, .rays, .indians, .twins, .white-sox, .royals, .tigers,
+    .astros, .angels, .mariners, .athletics, .rangers, .mets, .braves, .phillies, .marlins, .nationals,
+    .cardinals, .brewers, .reds, .cubs, .pirates, .dodgers, .padres, .giants, .diamonbacks, .rocies {
+  position: relative;
+  /* background-color: rgb(184, 69, 69); */
 }
 
 .new-freeagent-form {
@@ -346,10 +473,6 @@ a:visited {
   background-image: url("https://images.template.net/wp-content/uploads/2017/05/fimg-contract.jpg");
   background-size: 710px;
 }
-
-/* .fa-form-container {
-  align-content: center;
-} */
 
 .strong-new {
   font-size: 33px;

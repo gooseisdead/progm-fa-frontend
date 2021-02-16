@@ -85,17 +85,18 @@ function PlayerCard({ id, name, position, real_mlb_team, team, expand, years, sa
     }
 
     return (
-        <div className="player-container">
+        // <div className="player-container">
             <div className={cardClass}>
                 {/* {renderTopline()} */}
+                <p className="position-line">{position}</p>
                     <p className="card-name">{name}</p>
                 <br></br>
                     {renderIcon()}
-                    <p className="position-line">{position}</p>
+                    {/* <p className="position-line">{position}</p> */}
                 <p className="real-team">{real_mlb_team}</p>
                     <BidContainer player_id={id} team={team} />
             </div>
-        </div>
+        // </div>
     )
 }
 

@@ -4,6 +4,7 @@ import PlayerContainer from '../Containers/PlayerContainer';
 import TeamContainer from '../Containers/TeamContainer';
 import Header from '../Components/Header';
 import TeamPage from '../Components/TeamPage';
+import Home from '../Pages/Home';
 import OfficialRules from '../Pages/OfficialRules';
 
 function App() {
@@ -92,6 +93,9 @@ function App() {
       <div className="App">
         <Header />
           <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route exact path="/teams">
               <TeamContainer teams={teams}
                             players={players}

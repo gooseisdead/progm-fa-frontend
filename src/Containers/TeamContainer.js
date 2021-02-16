@@ -17,9 +17,13 @@ function TeamContainer({ teams, players }) {
     })
 
     return(
+        <>
+        <h1 className="team-header">Pro GM Teams</h1>
+            <br></br>
         <div className="team-container">
             {renderTeams}
         </div>
+        </>
     )
 }
 

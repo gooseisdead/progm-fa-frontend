@@ -54,9 +54,8 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
       window.location.reload()
     }
     
-  
       return (
-        <form onSubmit={handleSubmit} className="new-freeagent-form">
+        <form onSubmit={handleSubmit} className="admin-form">
           <input 
             name="name"
             placeholder="name"
@@ -69,6 +68,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
                       {sortedPosition}
                   </select>
           </label>
+          <br></br>
           <label>
               <strong> MLB Team: </strong>
                   <select onChange={handleTeamSelect} value={selectBy}>
@@ -76,6 +76,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
                   </select>
           </label>
           <label>
+            <br></br>
             <strong> Years: </strong>
                 <select onChange={handleYearSelect} value={years} placeholder="Select Years">
                     {sortedYears}

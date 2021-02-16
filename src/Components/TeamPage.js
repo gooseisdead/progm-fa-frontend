@@ -56,8 +56,11 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
     .map(x => x.toLowerCase())
     .join('-');
     
-
     return (
+        <>
+        <h1 className="team-name-header">{name}</h1>
+                <p className="gm-line">GM: <b>{user.username}</b></p>
+                <img src={logo} alt={name}></img><br></br>
         <div className="team-page-container">
         <div className={toKebabCase(team.name)}>
         <button onClick={clickHandler}>Show/hide admin form</button>
@@ -69,9 +72,9 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
                             /> :
                             null
                             } 
-            <h1>{name}</h1>
-                <p>GM: <b>{user.username}</b></p>
-                    <img src={logo} alt={name}></img>
+            {/* <h1>{name}</h1>
+                <p>GM: <b>{user.username}</b></p> */}
+                    {/* <img src={logo} alt={name}></img><br></br> */}
                             {renderFortyMan}
             ________________________________________________
                                 {renderMinors}
@@ -82,6 +85,7 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
             <p className="available-salary">Available Salary: {155.0 - totalSalary.toFixed(1)}</p>
         </div>
         </div>
+        </>
     )
 }
 
