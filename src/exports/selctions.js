@@ -14,4 +14,6 @@ const positionSelect = ["C", "1B", "2B", "3B", "SS", "OF", "SP", "RP"];
 
 const yearSelect = [1, 2, 3, 4];
 
-export { salaries, positionSelect, yearSelect }
+const controlSelect = ["Rookie", "2nd Year", "3rd Year", "4th Year", "5th Year", "6th Year"]
+
+export { salaries, positionSelect, yearSelect, controlSelect }
