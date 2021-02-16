@@ -23,8 +23,10 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
 
     const { name, logo, players, user } = team;
 
+    players.sort(function (a, b) {
+        return a.position - b.position; })
+
     let salaryArray = players.map((player) => player.salary_per_year)
-    console.log(salaryArray)
     let totalSalary = salaryArray.reduce(function(a, b) {
         return a + b;
     }, 0);
@@ -46,11 +48,18 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
     function clickHandler() {
         setShowForm((showForm) => !showForm)
     }
+
+    const toKebabCase = str =>
+        str &&
+        str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.toLowerCase())
+    .join('-');
     
 
     return (
         <div className="team-page-container">
-        <div className="team-page">
+        <div className={toKebabCase(team.name)}>
         <button onClick={clickHandler}>Show/hide admin form</button>
           {showForm ? 
             <AddPlayerForm key={params}

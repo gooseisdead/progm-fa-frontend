@@ -19,9 +19,40 @@ function PlayerCard({ id, name, position, real_mlb_team, team, expand, years, sa
 
 
     const cardClass = !expand ? "player-card" : "expanded-player-card"
+    function renderTopline() {
+    if (position === "C") {
+        return (
+            <p className="top-position-line">topline</p>
+        )
+    } else if (position === "SP") {
+        return (
+            <p className="top-position-line">topline</p>
+        )
+    } else if (position === "RP") {
+        return (
+            <p className="top-position-line">topline</p>
+        )
+    } else if (position === "1B") {
+        return (
+            <p className="top-position-line">topline</p>
+        )
+    } else if (position === "2B" || position === "3B") {
+        return (
+            <p className="top-position-line">topline</p>
+        )
+    } else if (position === "SS") {
+        return (
+            <p className="top-position-line">topline</p>
+        )
+    } else if (position === "OF") {
+        return (
+            <img src={outfield} alt="outfield-icon" className="icon-img"></img>
+        )
+    }
+}
 
 
-    const renderIcon = () => {
+    function renderIcon() {
         if (position === "C") {
             return (
                 <img src={catcher} alt="catcher-icon" className="icon-img"></img>
@@ -56,10 +87,11 @@ function PlayerCard({ id, name, position, real_mlb_team, team, expand, years, sa
     return (
         <div className="player-container">
             <div className={cardClass}>
+                {/* {renderTopline()} */}
                     <p className="card-name">{name}</p>
                 <br></br>
                     {renderIcon()}
-                <p className="position-line">{position}</p>
+                    <p className="position-line">{position}</p>
                 <p className="real-team">{real_mlb_team}</p>
                     <BidContainer player_id={id} team={team} />
             </div>
