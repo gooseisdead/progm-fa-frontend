@@ -60,7 +60,7 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
         <>
         <h1 className="team-name-header">{name}</h1>
                 <p className="gm-line">GM: <b>{user.username}</b></p>
-                <img src={logo} alt={name}></img><br></br>
+                <img src={logo} alt={name} className="team-logo-page"></img><br></br>
         <div className="team-page-container">
         <div className={toKebabCase(team.name)}>
         <button onClick={clickHandler}>Show/hide admin form</button>
