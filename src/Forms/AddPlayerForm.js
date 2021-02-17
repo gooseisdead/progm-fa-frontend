@@ -39,7 +39,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
     }
 
     function doesWork(control) {
-      if (control === "Rookie") {
+      if (control === "Minors") {
         return 0.5
       } else if (control === "2nd Year") {
         return 1.0
@@ -55,6 +55,25 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
         return 0.0
       }
     }
+
+    function doesWorkTwo(control) {
+      if (control === "Minors") {
+        return 1
+      } else if (control === "2nd Year") {
+        return 5
+      } else if (control === "3rd Year") {
+        return 4
+      } else if (control === "4th Year") {
+        return 3
+      } else if (control === "5th Year") {
+        return 2
+      } else if (control === "6th Year") {
+        return 1
+      } else {
+        return 0.0
+      }
+    }
+  
   
     function handleSubmit(event) {
       event.preventDefault();
@@ -68,7 +87,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
           position: position,
           real_mlb_team: selectBy,
           team_control: control,
-          years: years,
+          years: doesWorkTwo(control),
           salary_per_year: doesWork(control),
           minor_league_status: salary === 0.5 ? true : false,
           team_id: params.id
