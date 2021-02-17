@@ -10,10 +10,10 @@ const salaries = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
                  43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0,
                  50.0]
 
-const positionSelect = ["C", "1B", "2B", "3B", "SS", "OF", "SP", "RP"];
+const positionSelect = ["select one", "C", "1B", "2B", "3B", "SS", "OF", "SP", "RP"];
 
 const yearSelect = [1, 2, 3, 4];
 
-const controlSelect = ["Minors", "2nd Year", "3rd Year", "4th Year", "5th Year", "6th Year"]
+const controlSelect = ["select one", "minors", "2nd Year", "3rd Year", "4th Year", "5th Year", "6th Year"]
 
 export { salaries, positionSelect, yearSelect, controlSelect }

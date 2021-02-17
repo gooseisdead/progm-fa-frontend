@@ -34,14 +34,14 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
     const renderFortyMan = players.map((player) => {
         if (player.minor_league_status === false) {
             return (
-                <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million </p>
+                <p>{player.position} .... <b>{player.name}</b> ... ${player.salary_per_year.toFixed(1)} million ({player.years}) </p>
             )}
         })
 
     const renderMinors = players.map((player) => {
         if (player.minor_league_status === true) {
             return (
-                <p>{player.position} .... <b>{player.name}</b> ... {player.years} years, ${player.salary_per_year.toFixed(1)} million <MinorLeagueManager id={player.id} onDelete={onDelete} on40Man={on40Man} /></p>
+                <p>{player.position} .... <b>{player.name}</b> ... ${player.salary_per_year.toFixed(1)} million ({player.years}) <MinorLeagueManager id={player.id} onDelete={onDelete} on40Man={on40Man} /></p>
             )}
         })
 

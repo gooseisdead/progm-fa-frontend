@@ -7,7 +7,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
     const [name, setName] = useState("");
     const [position, setPosition] = useState("C");
     const [selectBy, setSelectBy] = useState("Arizona Diamondbacks");
-    const [control, setControl] = useState("Minors")
+    const [control, setControl] = useState("minors")
     const [years, setYears] = useState(1);
     const [salary, setSalary] = useState("");
   
@@ -38,8 +38,10 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
       setControl(event.target.value);
     }
 
+    console.log(control)
+
     function doesWork(control) {
-      if (control === "Minors") {
+      if (control === "minors") {
         return 0.5
       } else if (control === "2nd Year") {
         return 1.0
@@ -57,18 +59,18 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
     }
 
     function doesWorkTwo(control) {
-      if (control === "Minors") {
-        return 1
+      if (control === "minors") {
+        return "minors"
       } else if (control === "2nd Year") {
-        return 5
+        return "2nd Year"
       } else if (control === "3rd Year") {
-        return 4
+        return "3rd Year"
       } else if (control === "4th Year") {
-        return 3
+        return "4th Year"
       } else if (control === "5th Year") {
-        return 2
+        return "5th Year"
       } else if (control === "6th Year") {
-        return 1
+        return "6th Year"
       } else {
         return 0.0
       }
@@ -89,7 +91,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
           team_control: control,
           years: doesWorkTwo(control),
           salary_per_year: doesWork(control),
-          minor_league_status: salary === 0.5 ? true : false,
+          minor_league_status: control === "minors" ? true : false || years === "1" ? true : false,
           team_id: params.id
         }),
       })
