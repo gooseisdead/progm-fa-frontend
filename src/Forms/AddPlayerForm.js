@@ -9,7 +9,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
     const [selectBy, setSelectBy] = useState("Arizona Diamondbacks");
     const [control, setControl] = useState("Minors")
     const [years, setYears] = useState(1);
-    const [salary, setSalary] = useState(0.5);
+    const [salary, setSalary] = useState("");
   
     const sortedPosition = positionSelect.map((position, index) => 
           <option key={index}>{position}</option>);
@@ -36,7 +36,25 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
 
     function handleControlSelect(event) {
       setControl(event.target.value);
-  }
+    }
+
+    function doesWork(control) {
+      if (control === "Rookie") {
+        return 0.5
+      } else if (control === "2nd Year") {
+        return 1.0
+      } else if (control === "3rd Year") {
+        return 1.5
+      } else if (control === "4th Year") {
+        return 2.0
+      } else if (control === "5th Year") {
+        return 2.5
+      } else if (control === "6th Year") {
+        return 3.0
+      } else {
+        return 0.0
+      }
+    }
   
     function handleSubmit(event) {
       event.preventDefault();
@@ -51,7 +69,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
           real_mlb_team: selectBy,
           team_control: control,
           years: years,
-          salary_per_year: salary,
+          salary_per_year: doesWork(control),
           minor_league_status: salary === 0.5 ? true : false,
           team_id: params.id
         }),
@@ -69,6 +87,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          <br></br>
           <label>
               <strong> Position: </strong>
                   <select onChange={handlePositionSelect} value={position}>
@@ -84,17 +103,17 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
           </label>
           <label>
             <br></br>
+           <strong> Team Conrol: </strong>
+                 <select onChange={handleControlSelect} value={control} placeholder="Select Control">
+                     {sortedControl}
+                 </select>
+         </label>
+         <br></br>
+          <label>
+            <br></br>
             <strong> Years: </strong>
                 <select onChange={handleYearSelect} value={years} placeholder="Select Years">
                     {sortedYears}
-                </select>
-        </label>
-        <br></br>
-        <label>
-            <br></br>
-            <strong> Team Conrol: </strong>
-                <select onChange={handleControlSelect} value={control} placeholder="Select Control">
-                    {sortedControl}
                 </select>
         </label>
         <br></br>
@@ -108,6 +127,15 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
           <input type="submit" value="Add Player To Team" />
         </form>
       );
+
+      // <label>
+      //       <br></br>
+      //       <strong> Team Conrol: </strong>
+      //           <select onChange={handleControlSelect} value={control} placeholder="Select Control">
+      //               {sortedControl}
+      //           </select>
+      //   </label>
+      //   <br></br>
 }
 
 export default AddPlayerForm;
