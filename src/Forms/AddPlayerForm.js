@@ -50,9 +50,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
           position: position,
           real_mlb_team: selectBy,
           team_control: control,
-          years: control === "Rookie" ? 6 : years || control === "2nd Year" ? 5 : years ||
-                  control === "3rd Year" ? 4 : years || control === "4th Year" ? 3 : years ||
-                  control === "5th Year" ? 2 : years || control === "6th Year" ? 1 : years,
+          years: years,
           salary_per_year: salary,
           minor_league_status: salary === 0.5 ? true : false,
           team_id: params.id
