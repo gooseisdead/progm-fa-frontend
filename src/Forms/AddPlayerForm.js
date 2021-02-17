@@ -40,7 +40,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
 
     console.log(control)
 
-    function doesWork(control) {
+    function salaryBasedOnControl(control) {
       if (control === "minors") {
         return 0.5
       } else if (control === "2nd Year") {
@@ -58,7 +58,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
       }
     }
 
-    function doesWorkTwo(control) {
+    function yearsBasedOnControl(control) {
       if (control === "minors") {
         return "minors"
       } else if (control === "2nd Year") {
@@ -89,8 +89,8 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
           position: position,
           real_mlb_team: selectBy,
           team_control: control,
-          years: doesWorkTwo(control),
-          salary_per_year: doesWork(control),
+          years: yearsBasedOnControl(control),
+          salary_per_year: salaryBasedOnControl(control),
           minor_league_status: control === "minors" ? true : false || years === "1" ? true : false,
           team_id: params.id
         }),
@@ -100,7 +100,34 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
       window.location.reload()
     }
     
+    function handleFreeAgentSubmit(event) {
+      event.preventDefault();
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/players`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          position: position,
+          real_mlb_team: selectBy,
+          team_control: "Free Agent",
+          years: years,
+          salary_per_year: salary,
+          minor_league_status: false,
+          team_id: params.id
+        }),
+      })
+      .then((r) => r.json())
+      .then((newPlayer) => localHandleAddPlayer(newPlayer));
+      window.location.reload()
+    }
+
+
+
+
       return (
+        <div className="admin-form-container">
         <form onSubmit={handleSubmit} className="admin-form">
           <input 
             name="name"
@@ -129,9 +156,32 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
                      {sortedControl}
                  </select>
          </label>
-         <br></br>
+         {/* <br></br>
           <label>
-            <br></br>
+            <strong> Years: </strong>
+                <select onChange={handleYearSelect} value={years} placeholder="Select Years">
+                    {sortedYears}
+                </select>
+        </label>
+        <br></br>
+        <label>
+            <strong> Salary: </strong>
+                <select onChange={handleSalarySelect} value={salary}>
+                    {sortedSalary}
+                </select>
+        </label> */}
+          <br></br>
+          <input type="submit" value="Add Player To Team" />
+        </form>
+        <form onSubmit={handleFreeAgentSubmit} className="admin-form">
+          <input 
+            name="name"
+            placeholder="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <br></br>
+          <label>
             <strong> Years: </strong>
                 <select onChange={handleYearSelect} value={years} placeholder="Select Years">
                     {sortedYears}
@@ -144,19 +194,11 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
                     {sortedSalary}
                 </select>
         </label>
-          <br></br>
+        <br></br>
           <input type="submit" value="Add Player To Team" />
         </form>
+        </div>
       );
-
-      // <label>
-      //       <br></br>
-      //       <strong> Team Conrol: </strong>
-      //           <select onChange={handleControlSelect} value={control} placeholder="Select Control">
-      //               {sortedControl}
-      //           </select>
-      //   </label>
-      //   <br></br>
 }
 
 export default AddPlayerForm;
