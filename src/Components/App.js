@@ -6,6 +6,7 @@ import Header from '../Components/Header';
 import TeamPage from '../Components/TeamPage';
 import Home from '../Pages/Home';
 import OfficialRules from '../Pages/OfficialRules';
+import Results from '../Pages/Results';
 
 function App() {
 
@@ -151,6 +152,9 @@ function App() {
             </Route>
             <Route exact path="/official_rules">
               <OfficialRules />
+            </Route>
+            <Route exact path="/results">
+              <Results />
             </Route>
           </Switch>
       </div>

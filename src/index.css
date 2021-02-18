@@ -518,7 +518,7 @@ a:visited {
   0 0 100px rgb(56, 61, 61) */
 }
 
-.team-name-header, .rules-header {
+.team-name-header, .rules-header, .results-header {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 73px;
   font-weight: 600;
@@ -675,12 +675,60 @@ input[type=text], select {
   margin: 0px auto;
  }
 
- .official-rules {
+ .official-rules, .results {
    background-color: #c6cfe2;
    margin-top: 10px;
    margin-right: 200px;
    margin-left: 200px;
  }
+
+ .progm {
+   zoom: 1100%;
+ }
+
+ .average-time {
+   font-size: 33px;
+ }
+
+ .time-old {
+  font-size: 33px;
+  font-weight: 600;
+  color: rgb(241, 229, 121);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #151616;
+  text-shadow: 0 0 5px rgb(13, 13, 14),
+  0 0 20px rgb(29, 19, 19),
+  0 0 40px rgb(29, 29, 26),
+  0 0 80px rgb(13, 14, 10),
+  0 0 90px rgb(5, 5, 5),
+ }
+
+ .with-app {
+  font-size: 43px;
+  font-weight: 600;
+  color: rgb(100, 177, 80);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #afb4b4;
+  text-shadow: 0 0 5px rgb(110, 117, 119),
+  /* 0 0 20px rgb(17, 16, 16),
+  0 0 40px rgb(77, 185, 185),
+  0 0 80px rgb(90, 112, 112),
+  0 0 90px rgb(116, 126, 126),
+  0 0 100px rgb(56, 61, 61) */
+ }
+.old-way {
+  font-size: 43px;
+  font-weight: 600;
+  color: rgb(241, 24, 24);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #919797;
+  text-shadow: 0 0 5px rgb(110, 117, 119),
+  /* 0 0 20px #fff,
+  0 0 40px rgb(77, 185, 185),
+  0 0 80px rgb(90, 112, 112),
+  0 0 90px rgb(116, 126, 126),
+  0 0 100px rgb(56, 61, 61) */
+}
 
 
 

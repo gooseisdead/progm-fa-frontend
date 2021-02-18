@@ -14,6 +14,9 @@ function Header() {
             <NavLink to="/teams" className="button">
                 Pro GM Teams
             </NavLink>
+            <NavLink to="/results" className="button">
+                Results
+            </NavLink>
             <NavLink to="/official_rules" className="button">
                 Official Rules
             </NavLink>

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { salaries, yearSelect } from '../exports/selctions.js'
+import { salaries, yearSelect, yearFA } from '../exports/selctions.js'
 
 function NewBidForm({ player_id, localHandleNewBid }) {
 
     const [years, setYears] = useState(1)
+    const [yearFree, setYearFree] = useState(1)
     const [salary, setSalary] = useState(0.5)
     const [formHidden, setFormHidden] = useState(false)
 
-    const sortedYears = yearSelect.map((year, index) => <option key={index}>{year}</option>);
+    const sortedYears = yearFA.map((year, index) => <option key={index}>{year}</option>);
     const sortedSalary = salaries.map((salary, index) => <option key={index}>{salary}</option>);
 
     function testInterval() {
@@ -16,7 +17,7 @@ function NewBidForm({ player_id, localHandleNewBid }) {
     }
 
     function handleYearSelect(event) {
-        setYears(event.target.value);
+        setYearFree(event.target.value);
     }
     
     function handleSalarySelect(event) {
@@ -31,7 +32,7 @@ function NewBidForm({ player_id, localHandleNewBid }) {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          years: years,
+          years: yearFree,
           salary_per_year: salary,
           player_id: player_id,
           user_id: 19 

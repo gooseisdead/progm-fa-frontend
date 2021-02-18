@@ -1,4 +1,8 @@
 import React from 'react';
+import progm from '../exports/progm.png'
+import progm1 from '../exports/progm1.png'
+import progm2 from '../exports/progm2.png'
+import progm3 from '../exports/progm3.png'
 
 function OfficialRules() {
     return (
@@ -44,13 +48,25 @@ function OfficialRules() {
     <p>A year of service time is defined by a season in which the player had over 130 at bats for hitters, and over 50 IPs or over 25 games for pitchers. Use the player's stats on mlb.com, fangraphs.com (my personal favorite), baseballreference.com, or another stats website to determine how many years of service time they have.</p>
 
     <p>Players with fewer than six years of service time in real life will be paid based on the following formula:</p>
-
-    First year players (players who have completed zero years of service time, according to our criteria) - $0.5 million
+    <img className="progm" src={progm} alt="pro-gm"></img>  
+    <img className="progm" src={progm1} alt="pro-gm"></img>
+    <img className="progm" src={progm2} alt="pro-gm"></img>
+    <img className="progm" src={progm3} alt="pro-gm"></img>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <ul>First year players (players who have completed zero years of service time, according to our criteria) - $0.5 million
     Second year players (players who have completed one year of service time, and are thus in their second years) - $1.0 million
     Third year players - $1.5 million
     Fourth year players - $2.0 million 
     Fifth year players - $2.5 million 
     Sixth year players - $3.0 million 
+    </ul>
 
     Your players will continue along this salary schedule for as long as they remain under your control. Once they complete their sixth year, they become free agents. This is entirely based off of real life stats. If you have a player on your roster for the entire season but he doesn’t manage to exceed 130 ABs as a hitter or 50 IPs or 25 games as a pitcher, you don't have to move his pay up or give him a year of service. On the other hand, if he does reach the designated total for any one of those stats, he will gain a year of service regardless of whether you had him as an active player, a reserve player, or in the minors. The only exception to this will be if the player was [i]redshirted[/i] (see below).
 
