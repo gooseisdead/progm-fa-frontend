@@ -40,7 +40,7 @@ function NewBidForm({ player_id, localHandleNewBid }) {
       })
       .then((r) => r.json())
       .then((newBid) => localHandleNewBid(newBid));
-      setTimeout(testInterval, 5000)
+      setTimeout(testInterval, 8000)
     }
 
       return (

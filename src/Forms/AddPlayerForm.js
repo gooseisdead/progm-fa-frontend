@@ -8,7 +8,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
     const [position, setPosition] = useState("C");
     const [selectBy, setSelectBy] = useState("Arizona Diamondbacks");
     const [control, setControl] = useState("minors")
-    const [years, setYears] = useState(1);
+    const [years, setYears] = useState(2021);
     const [salary, setSalary] = useState("");
   
     const sortedPosition = positionSelect.map((position, index) => 
@@ -183,6 +183,20 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          <br></br>
+          <label>
+              <strong> Position: </strong>
+                  <select onChange={handlePositionSelect} value={position}>
+                      {sortedPosition}
+                  </select>
+          </label>
+          <br></br>
+          <label>
+              <strong> MLB Team: </strong>
+                  <select onChange={handleTeamSelect} value={selectBy}>
+                      {sortedList}
+                  </select>
+          </label>
           <br></br>
           <label>
             <strong> Years: </strong>
