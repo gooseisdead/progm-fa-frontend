@@ -2,7 +2,8 @@ import React from 'react';
 
 function OfficialRules() {
     return (
-        
+        <div className="official-rules-container">
+        <h1 className="rules-header">Official Rules</h1>
         <div className="official-rules">
             <p>Welcome to Pro GM, a dynasty league where you take command of a Major League team and draft, trade, and sign free agents to try to turn it into a fantasy baseball champion year after year.</p>
 
@@ -213,6 +214,7 @@ function OfficialRules() {
 
     Fines and probation may be given out by the commissioner under certain circumstances. If a fine is given out, you will put the fine on your roster and pay it as you would a player. A fine can be a lump sum for one year, or a fixed amount for up to four years. Probation will take the form of extra scrutiny over your trades and roster moves to make sure that you are making fair and legal moves but also moves that are in your team's best interest, for now and for the future. While your team is in probation, the commissioners may veto your trades without the trade going through the standard veto process.</span>
             </div>
+        </div>
     )
 }
 

@@ -59,8 +59,9 @@ function PlayerContainer({ teams, players, setPlayers, sortedList, localHandleNe
             null
             }
             <br></br>
-            <button onClick={handleExpand} className="expand-button">{expandLine}</button>
             <FilterForm searchTerm={searchTerm} onChangeSearch={onChangeSearch} positionTerm={positionTerm} setPositionTerm={setPositionTerm} />
+            <br></br>
+            <button onClick={handleExpand} className="expand-button">{expandLine}</button>
         </div>
         <div className="player-container">
                 <br></br>

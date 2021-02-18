@@ -11,7 +11,6 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man, onDemot
     const [team, setTeam] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [showForm, setShowForm] = useState(false)
-    const [showOptions, setShowOptions] = useState(false)
     const params = useParams();
 
     useEffect(() => {
@@ -91,10 +90,10 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man, onDemot
                                 <h2>Minor Leagues</h2>
                                 {renderMinors}
                             <br></br>
-                        <p className="roster-size"><b>Roster Size: {salaryArray.length} players <p className="max-size">Max Roster Size: 75</p></b> {75 - salaryArray.length} roster slots available</p>
-                    <b>Team Salary: </b><p>{totalSalary.toFixed(1)} million</p>
-                <p className="cap">Salary Cap: 155.0 million </p>
-            <p className="available-salary">Available Salary: {155.0 - totalSalary.toFixed(1)} million</p>
+                        <p className="roster-size"><b>Roster Size: {salaryArray.length} / 80 </b><br></br> {80 - salaryArray.length} roster slots available</p>
+                    <p className="total-salary-line"><b>Team Salary: </b>${totalSalary.toFixed(1)} million</p>
+                <p className="available-salary">Available Salary: ${155.0 - totalSalary.toFixed(1)} million</p>
+            <p className="cap">Salary Cap: $155.0 million </p>
         </div>
         </div>
         </>
