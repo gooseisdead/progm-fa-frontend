@@ -14,8 +14,8 @@ function MinorLeagueManager({ id, onDelete, on40Man }) {
 
     return (
             <div className="roster-buttons">
-                <button onClick={handle40ManClick}>Add to 40-Man Roster</button>
-                <button onClick={handleDeleteClick}>Minor League Cut</button>
+                <button onClick={handle40ManClick} className="add-to">Add to 40-Man Roster</button>
+                <button onClick={handleDeleteClick} className="minor-cut">Minor League Cut</button>
             </div>
     )
 }

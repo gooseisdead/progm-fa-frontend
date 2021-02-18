@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddPlayerForm from '../Forms/AddPlayerForm';
 import MinorLeagueManager from '../Forms/MinorLeagueManager';
+import Demotions from '../Forms/Demotions';
+import NonTender from '../Forms/NonTender';
 
-function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
+function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man, onDemotion, onNonTender }) {
 
     const [team, setTeam] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -30,18 +32,24 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
     let totalSalary = salaryArray.reduce(function(a, b) {
         return a + b;
     }, 0);
+
+    const allOthers = ["2nd Year", "3rd Year", "4th Year", "5th Year", "6th Year"]
     
     const renderFortyMan = players.map((player) => {
         if (player.minor_league_status === false) {
             return (
-                <p>{player.position} .... <b>{player.name}</b> ... ${player.salary_per_year.toFixed(1)} million ({player.years}) </p>
+                <p className="forty-man-line">{player.position} .... <b>{player.name}</b>
+                 ... ${player.salary_per_year.toFixed(1)} million
+                 ({player.team_control === "minors" ? player.team_control : player.years})
+                 {player.team_control === "minors" ? <Demotions id={player.id} onDemotion={onDemotion}/> : null}
+                 {allOthers.includes(player.team_control) ? <NonTender id={player.id} onNonTender={onNonTender}/> : null}</p>
             )}
         })
 
     const renderMinors = players.map((player) => {
         if (player.minor_league_status === true) {
             return (
-                <p>{player.position} .... <b>{player.name}</b> ... ${player.salary_per_year.toFixed(1)} million ({player.years}) <MinorLeagueManager id={player.id} onDelete={onDelete} on40Man={on40Man} /></p>
+                <p className="minors-line">{player.position} .... <b>{player.name}</b> ... ${player.salary_per_year.toFixed(1)} million ({player.team_control}) <MinorLeagueManager id={player.id} onDelete={onDelete} on40Man={on40Man} /></p>
             )}
         })
 
@@ -63,26 +71,27 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man }) {
                 <img src={logo} alt={name} className="team-logo-page"></img><br></br>
         <div className="team-page-container">
         <div className={toKebabCase(team.name)}>
-        <button onClick={clickHandler}>Show/hide admin form</button>
+        <button onClick={clickHandler} className='admin-button'>Show/hide admin form</button>
           {showForm ? 
             <AddPlayerForm key={params}
                             params={params}
                             sortedList={sortedList}
                             localHandleAddPlayer={localHandleAddPlayer}
+                            setTeam={setTeam}
+                            team={team}
                             /> :
                             null
                             } 
-            {/* <h1>{name}</h1>
-                <p>GM: <b>{user.username}</b></p> */}
-                    {/* <img src={logo} alt={name}></img><br></br> */}
+                                <h2>40-Man Roster</h2>
                             {renderFortyMan}
             ________________________________________________
+                                <h2>Minor Leagues</h2>
                                 {renderMinors}
                             <br></br>
-                        <p><b>Roster Size: {salaryArray.length} players <p className="max-size">Max Roster Size: 75</p></b> {75 - salaryArray.length} roster slots available</p>
-                    <b>Team Salary: </b>{totalSalary.toFixed(1)} million<br></br>
+                        <p className="roster-size"><b>Roster Size: {salaryArray.length} players <p className="max-size">Max Roster Size: 75</p></b> {75 - salaryArray.length} roster slots available</p>
+                    <b>Team Salary: </b><p>{totalSalary.toFixed(1)} million</p>
                 <p className="cap">Salary Cap: 155.0 million </p>
-            <p className="available-salary">Available Salary: {155.0 - totalSalary.toFixed(1)}</p>
+            <p className="available-salary">Available Salary: {155.0 - totalSalary.toFixed(1)} million</p>
         </div>
         </div>
         </>

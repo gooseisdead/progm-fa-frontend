@@ -69,6 +69,7 @@ function App() {
         player.id === updatedPlayer.id ? updatedPlayer : player
       );
       setPlayers(updatedPlayers);
+      setPlayers(...players)
     }
 
     function handle40Man(id) {
@@ -79,6 +80,34 @@ function App() {
           },
           body: JSON.stringify({
             minor_league_status: false,
+          })
+        })
+          .then((r) => r.json())
+          .then(fortyMan)
+      }
+
+      function handleDemotion(id) {
+        fetch(`http://localhost:3000/players/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            minor_league_status: true,
+          })
+        })
+          .then((r) => r.json())
+          .then(fortyMan)
+      }
+
+      function handleNonTender(id) {
+        fetch(`http://localhost:3000/players/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            team_id: 31
           })
         })
           .then((r) => r.json())
@@ -112,7 +141,13 @@ function App() {
                     />
             </Route>
             <Route exact path="/teams/:id">
-              <TeamPage users={users} sortedList={sortedList} localHandleAddPlayer={handleAddPlayer} onDelete={handleDeleteClick} on40Man={handle40Man}/>
+              <TeamPage sortedList={sortedList}
+                        localHandleAddPlayer={handleAddPlayer}
+                        onDelete={handleDeleteClick}
+                        on40Man={handle40Man}
+                        onDemotion={handleDemotion}
+                        onNonTender={handleNonTender}
+                        />
             </Route>
             <Route exact path="/official_rules">
               <OfficialRules />

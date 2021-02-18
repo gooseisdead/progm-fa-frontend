@@ -25,7 +25,7 @@ img {
   max-height: 100px;
 }
 
-.button{
+/* .button{
   position: relative;
   display: block;
   color: rgb(47, 56, 56);
@@ -41,7 +41,7 @@ img {
   width: 70%;
   height: 40px;
   background: rgba(27, 25, 25, 0.2);
-}
+} */
 
 .player-container {
   display: flex;
@@ -94,6 +94,14 @@ a:visited {
   box-shadow: 9px 6px rgb(48, 49, 48);
   border-radius: 10px; 
 } 
+
+/* .player-card:hover {
+  background-color: rgb(211, 201, 201);
+  border-radius: 25px;
+  padding: 20px;
+  transition: 0.5s;
+} */
+
 
 .expanded-player-card {
   display: inline-block;
@@ -184,10 +192,39 @@ a:visited {
   background-size: 550px;
 } 
 
+.team-card:hover {
+  background-color: rgb(211, 201, 201);
+  border-radius: 25px;
+  padding: 20px;
+  transition: 0.9s;
+}
+
+
 .time-line {
-  font-size: x-small;
+  /* font-size: x-small; */
   font-style: oblique;
   color: rgb(219, 56, 70);
+}
+
+.forty-man-line {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(17, 43, 121);
+  letter-spacing: 0.02em;
+  /* text-shadow: 0 0 0.15em #151616;
+  text-shadow: 0 0 5px rgb(34, 32, 32),
+  0 0 20px #fff,
+  0 0 40px rgb(73, 107, 107),
+  0 0 80px rgb(90, 112, 112),
+  0 0 90px rgb(116, 126, 126),
+  0 0 100px rgb(56, 61, 61), */
+}
+
+.minors-line {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(12, 12, 14);
+  letter-spacing: 0.02em;
 }
 
 .team-user-line {
@@ -246,9 +283,10 @@ a:visited {
 }
 .nav-wrapper {
   display: flex;
-  height: 100px;
+  height: 80px;
   align-items: center;
   justify-content: center;
+  background-image: url("https://st.depositphotos.com/1193075/2206/i/950/depositphotos_22067391-stock-photo-baseball-bat-macro-close-up.jpg");
 }
 .link-wrapper {
   display: flex;
@@ -304,6 +342,51 @@ a:visited {
   color: rgb(19, 83, 59);
 }
 
+.roster-size {
+  padding-top: 0mm;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(30, 32, 30);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #cfdbdb;
+  text-shadow: 0 0 5px rgb(216, 194, 194),
+  0 0 20px rgb(216, 223, 215),
+  0 0 40px rgb(151, 201, 201),
+  0 0 80px rgb(156, 202, 202),
+  0 0 90px rgb(141, 187, 187),
+  0 0 100px rgb(149, 196, 196),
+}
+
+.cap {
+  padding-top: 0mm;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(30, 32, 30);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #cfdbdb;
+  text-shadow: 0 0 5px rgb(216, 194, 194),
+  0 0 20px rgb(216, 223, 215),
+  0 0 40px rgb(151, 201, 201),
+  0 0 80px rgb(156, 202, 202),
+  0 0 90px rgb(141, 187, 187),
+  0 0 100px rgb(149, 196, 196),
+}
+
+.available-salary {
+  padding-top: 0mm;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(51, 126, 51);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #cfdbdb;
+  text-shadow: 0 0 5px rgb(216, 194, 194),
+  0 0 20px rgb(216, 223, 215),
+  0 0 40px rgb(151, 201, 201),
+  0 0 80px rgb(156, 202, 202),
+  0 0 90px rgb(141, 187, 187),
+  0 0 100px rgb(149, 196, 196),
+}
+
 .icon-img {
   zoom: 330%; 
   color-adjust: unset;
@@ -346,6 +429,20 @@ a:visited {
   font-size: 43px;
   font-weight: 600;
   color: rgb(250, 243, 243);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 0.15em #151616;
+  text-shadow: 0 0 5px rgb(110, 117, 119),
+  0 0 20px #fff,
+  0 0 40px rgb(77, 185, 185),
+  0 0 80px rgb(90, 112, 112),
+  0 0 90px rgb(116, 126, 126),
+  0 0 100px rgb(56, 61, 61)
+}
+
+.signed-line {
+  font-size: 43px;
+  font-weight: 600;
+  color: rgb(241, 24, 24);
   letter-spacing: 0.02em;
   text-shadow: 0 0 0.15em #151616;
   text-shadow: 0 0 5px rgb(110, 117, 119),
@@ -502,5 +599,57 @@ a:visited {
   0 0 80px rgb(13, 14, 10),
   0 0 90px rgb(5, 5, 5),
 }
+
+input[type=submit] {
+  width: 60%;
+  background-color: rgb(67, 91, 141);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: black;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #5e70d8;
+}
+
+input[type=text], select {
+  color: #43609e;
+  size: 80px;
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid rgb(37, 33, 33);
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+
+.button {
+  font-size: 28px;
+  background-color: rgb(194, 191, 164);
+  border-radius: 25px;
+  height: 40px;
+  width: 220px;
+  margin: 0px auto;
+  background-image: url("https://st.depositphotos.com/1193075/2206/i/950/depositphotos_22067391-stock-photo-baseball-bat-macro-close-up.jpg");
+ }
+ 
+ .button:hover {
+   background-color: rgb(211, 201, 201);
+   border-radius: 25px;
+   padding: 20px;
+   transition: 0.5s;
+ }
+
+ .expand-button, .admin-button, .new-fa-button, .minors-down, .tender-click,
+ .add-to, .minor-cut, .reset-filter {
+  background-color: rgb(236, 233, 233);
+  border-radius: 25px;
+  width: 200px;
+  margin: 0px auto;
+ }
+
 
 

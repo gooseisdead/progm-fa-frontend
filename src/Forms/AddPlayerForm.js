@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { positionSelect } from '../exports/selctions.js'
 import { salaries, yearSelect, controlSelect } from '../exports/selctions.js'
 
-function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTeams }) {
+function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
 
     const [name, setName] = useState("");
     const [position, setPosition] = useState("C");
@@ -77,7 +77,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
     }
   
   
-    function handleSubmit(event) {
+    function handleSubmit(event, team) {
       event.preventDefault();
       fetch(`${process.env.REACT_APP_API_BASE_URL}/players`, {
         method: "POST",
@@ -100,7 +100,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer, teams, setTea
       window.location.reload()
     }
     
-    function handleFreeAgentSubmit(event) {
+    function handleFreeAgentSubmit(event, team) {
       event.preventDefault();
       fetch(`${process.env.REACT_APP_API_BASE_URL}/players`, {
         method: "POST",

@@ -27,7 +27,7 @@ function FilterForm({ searchTerm, onChangeSearch }) {
                   </select>
             </label>
             <br></br>
-            <button onClick={handleClick}>Reset Filter</button>
+            <button onClick={handleClick} className="reset-filter">Reset Filter</button>
             {/* <i className="search icon" />
           </div> */}
         </div>

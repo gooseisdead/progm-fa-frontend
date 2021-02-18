@@ -61,7 +61,7 @@ function NewBidForm({ player_id, localHandleNewBid }) {
         </label>
         <br></br>
           <input type="submit" value="Place Your Bid" />
-        </form> : <p>SIGNED!</p> }
+        </form> : <p className="signed-line">SIGNED!</p> }
         </>
       )
 }
