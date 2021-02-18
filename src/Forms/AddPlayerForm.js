@@ -100,7 +100,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
       window.location.reload()
     }
     
-    function handleFreeAgentSubmit(event, team) {
+    function handleFreeAgentSubmit(event) {
       event.preventDefault();
       fetch(`${process.env.REACT_APP_API_BASE_URL}/players`, {
         method: "POST",
@@ -129,7 +129,8 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
       return (
         <div className="admin-form-container">
         <form onSubmit={handleSubmit} className="admin-form">
-          <input 
+        <h2 className="add-new-cc">Add Cost-Controlled Player</h2>
+          <strong>Player Name: </strong><input 
             name="name"
             placeholder="name"
             value={name}
@@ -174,6 +175,8 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
           <input type="submit" value="Add Player To Team" />
         </form>
         <form onSubmit={handleFreeAgentSubmit} className="admin-form">
+        <h2 className="add-new-cc">Add Free Agent</h2>
+          <strong>Player Name: </strong>
           <input 
             name="name"
             placeholder="name"

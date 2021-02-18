@@ -287,6 +287,7 @@ a:visited {
   align-items: center;
   justify-content: center;
   background-image: url("https://st.depositphotos.com/1193075/2206/i/950/depositphotos_22067391-stock-photo-baseball-bat-macro-close-up.jpg");
+  background-size: 8000px;
 }
 .link-wrapper {
   display: flex;
@@ -318,6 +319,7 @@ a:visited {
   border-width: 6px;
   /* background-color: rgb(130, 190, 145); */
   background-image: url("https://previews.123rf.com/images/munktcu/munktcu1311/munktcu131100645/23756054-baseball-infield-dirt-patterns-from-being-raked.jpg");
+  background-size: 3100px;
   opacity: 90%;
 }
 
@@ -525,7 +527,7 @@ a:visited {
   vertical-align: top;
   padding: 3px;
   overflow-y: scroll;
-  height: 925px;
+  height: 680px;
   width: 690px;
   border-radius: 10px;
   border-style: double;
@@ -541,7 +543,7 @@ a:visited {
   background-color: rgb(151, 142, 142);
   background-size: cover;
   position: absolute;
-  height: 1495px;
+  height: 3000px;
   top: 0px;
   right: 0px;
   bottom: 0px;
@@ -549,17 +551,16 @@ a:visited {
   opacity: 0.9;
 }
 
-.team-page {
+/* .team-page {
   position: relative;
   background-color: wheat;
   width: 630px
-}
+} */
 
 .orioles, .red-sox, .yankees, .blue-jays, .rays, .indians, .twins, .white-sox, .royals, .tigers,
     .astros, .angels, .mariners, .athletics, .rangers, .mets, .braves, .phillies, .marlins, .nationals,
     .cardinals, .brewers, .reds, .cubs, .pirates, .dodgers, .padres, .giants, .diamondbacks, .rockies {
   position: relative;
-  /* background-color: rgb(184, 69, 69); */
 }
 
 .team-logo-page {
@@ -618,7 +619,7 @@ input[type=submit]:hover {
 input[type=text], select {
   color: #43609e;
   size: 80px;
-  width: 200px;
+  width: 150px;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid rgb(37, 33, 33);

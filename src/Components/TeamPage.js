@@ -4,12 +4,14 @@ import AddPlayerForm from '../Forms/AddPlayerForm';
 import MinorLeagueManager from '../Forms/MinorLeagueManager';
 import Demotions from '../Forms/Demotions';
 import NonTender from '../Forms/NonTender';
+import Buyout from '../Forms/Buyout';
 
 function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man, onDemotion, onNonTender }) {
 
     const [team, setTeam] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [showForm, setShowForm] = useState(false)
+    const [showOptions, setShowOptions] = useState(false)
     const params = useParams();
 
     useEffect(() => {
@@ -42,7 +44,8 @@ function TeamPage({ sortedList, localHandleAddPlayer, onDelete, on40Man, onDemot
                  ... ${player.salary_per_year.toFixed(1)} million
                  ({player.team_control === "minors" ? player.team_control : player.years})
                  {player.team_control === "minors" ? <Demotions id={player.id} onDemotion={onDemotion}/> : null}
-                 {allOthers.includes(player.team_control) ? <NonTender id={player.id} onNonTender={onNonTender}/> : null}</p>
+                 {allOthers.includes(player.team_control) ? <NonTender id={player.id} onNonTender={onNonTender}/> : null}
+                 {player.team_control === "Free Agent" ? <Buyout id={player.id} onNonTender={onNonTender}/> : null}</p>
             )}
         })
 

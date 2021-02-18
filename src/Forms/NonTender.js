@@ -10,6 +10,7 @@ function NonTender({ id, onNonTender }) {
     return (
             <div className="roster-buttons">
                 <button onClick={handleNonTenderClick} className="tender-click">Non-Tender</button>
+                <button onClick={handleNonTenderClick} className="tender-click">Place On Waivers</button>
                 
             </div>
     )
