@@ -77,7 +77,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
     }
   
   
-    function handleSubmit(event, team) {
+    function handleSubmit(event) {
       event.preventDefault();
       fetch(`${process.env.REACT_APP_API_BASE_URL}/players`, {
         method: "POST",
@@ -91,7 +91,7 @@ function AddPlayerForm({ params, sortedList, localHandleAddPlayer }) {
           team_control: control,
           years: yearsBasedOnControl(control),
           salary_per_year: salaryBasedOnControl(control),
-          minor_league_status: control === "minors" ? true : false || years === "1" ? true : false,
+          minor_league_status: control === "minors" ? true : false,
           team_id: params.id
         }),
       })
