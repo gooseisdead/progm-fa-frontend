@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/pro-gm-deploy/static/css/main.052672e9.chunk.css",
+    "main.js": "/pro-gm-deploy/static/js/main.3354dac2.chunk.js",
+    "main.js.map": "/pro-gm-deploy/static/js/main.3354dac2.chunk.js.map",
+    "runtime-main.js": "/pro-gm-deploy/static/js/runtime-main.7a008d22.js",
+    "runtime-main.js.map": "/pro-gm-deploy/static/js/runtime-main.7a008d22.js.map",
+    "static/js/2.4df80429.chunk.js": "/pro-gm-deploy/static/js/2.4df80429.chunk.js",
+    "static/js/2.4df80429.chunk.js.map": "/pro-gm-deploy/static/js/2.4df80429.chunk.js.map",
+    "index.html": "/pro-gm-deploy/index.html",
+    "static/css/main.052672e9.chunk.css.map": "/pro-gm-deploy/static/css/main.052672e9.chunk.css.map",
+    "static/js/2.4df80429.chunk.js.LICENSE.txt": "/pro-gm-deploy/static/js/2.4df80429.chunk.js.LICENSE.txt",
+    "static/media/banner.3e95ee3c.png": "/pro-gm-deploy/static/media/banner.3e95ee3c.png",
+    "static/media/index.css": "/pro-gm-deploy/static/media/baseball.79124d0d.png",
+    "static/media/progm.60a8cab8.png": "/pro-gm-deploy/static/media/progm.60a8cab8.png",
+    "static/media/progm1.a7d5c91b.png": "/pro-gm-deploy/static/media/progm1.a7d5c91b.png",
+    "static/media/progm2.4fbe5844.png": "/pro-gm-deploy/static/media/progm2.4fbe5844.png",
+    "static/media/progm3.a21e7a0d.png": "/pro-gm-deploy/static/media/progm3.a21e7a0d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7a008d22.js",
+    "static/js/2.4df80429.chunk.js",
+    "static/css/main.052672e9.chunk.css",
+    "static/js/main.3354dac2.chunk.js"
+  ]
+}
